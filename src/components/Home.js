@@ -3,6 +3,7 @@ import UserService from "../services/userServices";
 
 const Home = () => {
   const [content, setContent] = useState("");
+  
   useEffect(() => {
     UserService.getPublicContent().then(
       (response) => {
@@ -17,6 +18,7 @@ const Home = () => {
       }
     );
   }, []);
+
   return (
     <div className="container">
       <header className="jumbotron">

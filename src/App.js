@@ -1,17 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router,  Route, Link, Routes, NavLink } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
-import BoardModerator from "./components/BoardModerator";
-import BoardAdmin from "./components/BoardAdmin";
 import { logout } from "./store/authSlice";
-import EventBus from "./common/EventBus";
 
 
 const App = () => {
@@ -30,19 +26,19 @@ const App = () => {
       setShowModeratorBoard(false);
       setShowAdminBoard(false);
     }
-    EventBus.on("logout", () => {
-      logOut();
-    });
-    return () => {
-      EventBus.remove("logout");
-    };
+    // EventBus.on("logout", () => {
+    //   logOut();
+    // });
+    // return () => {
+    //   EventBus.remove("logout");
+    // };
   }, [currentUser, logOut]);
   return (
     <Router>
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            bezKoder
+            welkom
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
@@ -75,9 +71,9 @@ const App = () => {
           {currentUser ? (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
+                <NavLink to={"/profile"} className="nav-link">
                   {currentUser.username}
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
                 <a href="/login" className="nav-link" onClick={logOut}>
@@ -88,28 +84,26 @@ const App = () => {
           ) : (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
+                <NavLink to={"/login"} className="nav-link">
                   Login
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
+                <NavLink to={"/register"} className="nav-link">
                   Sign Up
-                </Link>
+                </NavLink>
               </li>
             </div>
           )}
         </nav>
         <div className="container mt-3">
-          <Switch>
-            <Route exact path={["/", "/home"]} component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/profile" component={Profile} />
-            <Route path="/user" component={BoardUser} />
-            <Route path="/mod" component={BoardModerator} />
-            <Route path="/admin" component={BoardAdmin} />
-          </Switch>
+          <Routes>
+            <Route exact path={ "/home"} element={<Home/>} />
+            <Route exact path="/login" element={<Login/>} />
+            <Route exact path="/register" element={<Register/>} />
+            <Route exact path="/profile" element={<Profile/>} />
+            <Route path="/user" element={<BoardUser/>} />
+          </Routes>
         </div>
       </div>
     </Router>
