@@ -2,9 +2,8 @@ import axios from "axios";
 
 
 const API_URL = "https://splunk.backpackertrail.de/";
-const register = (username, email, password) => {
+const register = ( email, password) => {
   return axios.post(API_URL + "users", {
-    username,
     email,
     password,
   });
