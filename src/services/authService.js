@@ -11,7 +11,7 @@ const register = ( email, password) => {
 
 const login = (email, password) => {
   return axios
-    .post(API_URL + "users/google-login", {
+    .post(API_URL + "token/", {
       email,
       password,
     })

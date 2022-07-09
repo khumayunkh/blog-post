@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../store/authSlice";
+import { register } from "../store/authSlice";
 
-function Login(){
+function Register(){
     const dispatch = useDispatch()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const handleSubmit = () => {
-        dispatch(login(email,password));
+        dispatch(register(email,password));
     }
     return(
         <>
@@ -21,4 +21,4 @@ function Login(){
 }
 
 
-export default Login
+export default Register
