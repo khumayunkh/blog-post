@@ -9,13 +9,13 @@ function Login(){
     const [password, setPassword] = useState('')
 
     const handleSubmit = () => {
-        dispatch(login(email,password));
+        dispatch(login({email,password}));
     }
     return(
         <>
         <input value={email} onChange={e => setEmail(e.target.value)}/>
         <input value={password} onChange={e => setPassword(e.target.value)}/>
-        <button onClick={handleSubmit}>register</button>
+        <button onClick={handleSubmit}>Login</button>
         </>
     )
 }
