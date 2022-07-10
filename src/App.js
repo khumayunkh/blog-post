@@ -1,32 +1,28 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { BrowserRouter as Router,  Route, Link, Routes, NavLink } from "react-router-dom";
-import "./App.css";
-import Header from "./components/Header/Header";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Verify from "./components/Verify";
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Public from './components/Public'
+import Login from './features/auth/Login'
+import Welcome from './features/auth/Welcome'
+import RequireAuth from './features/auth/RequireAuth'
+import UsersList from './features/users/UsersList'
 
-
-const App = () => {
-  return(
-    <>
-    <Header/>
+function App() {
+  return (
     <Routes>
-      <Route
-        path="register"
-        element={<Register/>}
-      />
-      <Route
-        path="users/verify/:token"
-        element={<Verify/>}
-      />
-      <Route
-        path="login"
-        element={<Login/>}
-      />
-    </Routes>
-    </>
-  );
-};
-export default App;
+      <Route path="/" element={<Layout />}>
+        {/* public routes */}
+        <Route index element={<Public />} />
+        <Route path="login" element={<Login />} />
 
+        {/* protected routes */}
+        <Route element={<RequireAuth />}>
+          <Route path="welcome" element={<Welcome />} />
+          <Route path="userslist" element={<UsersList />} />
+        </Route>
+
+      </Route>
+    </Routes>
+  )
+}
+
+export default App
