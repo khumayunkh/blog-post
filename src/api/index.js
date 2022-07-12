@@ -14,8 +14,7 @@ export const client = axios.create({
 });
 
 
-const setConfiguration = (AxiosInstance) => {
-    client = AxiosInstance
+const setConfiguration = () => {
     client.interceptors.request.use(
         (config) => {
             config.headers && (config.headers['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`)
@@ -49,14 +48,19 @@ export const logout = async () => {
 }
 
 
-export const refreshToken = async () => {
+export const refreshToken = async (refresh) => {
     return await client.post('token/refresh/', {
-        'refresh': tokenPayload.refresh || ''
+        'refresh': refresh || ''
     })
 }
 
-export const verifyEmail = async () => {
+export const verifyEmail = async (token) => {
     return await client.post(`users/verify/`, {
         "verification-token": token,
     })
+}
+
+
+export const googleLogin = async (google_token) => {
+    return await client.post('users/google-login/', {"google-token": google_token})
 }

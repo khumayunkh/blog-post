@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login, registration } from "../../store/authSlice/authSlice";
+import { login, loginThunk, registration, registrationThunk } from "../../store/authSlice/authSlice";
 
 function LoginForm(){
     const dispatch = useDispatch()
@@ -23,10 +23,10 @@ function LoginForm(){
                 type="password"
                 placeholder='Пароль'
             />
-            <button onClick={() => dispatch(login(email,password))}>
+            <button onClick={() => dispatch(loginThunk(email,password))}>
                 Логин
             </button>
-            <button onClick={() => dispatch(registration(email,password))}>
+            <button onClick={() => dispatch(registrationThunk(email,password))}>
                 Регистрация
             </button>
         </div>

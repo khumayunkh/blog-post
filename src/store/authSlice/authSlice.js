@@ -1,71 +1,109 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import {register, login, logout} from './../index'
+import {register, login, verifyEmail, googleLogin} from './../../api/index'
 
 
 
-export const login = createAsyncThunk(
-    'login/auth',
-    async function({email, password}) {
-        try {
-            const response = await login(email, password);
-            console.log(response)
-            localStorage.setItem('token', response.data.accessToken);
-            const data = response.data
-        } catch (e) {
-            console.log(e.response?.data?.message);
-        }
+export const registrationThunk = createAsyncThunk(
+    'register',
+    async ({email,password}, {dispatch}) => {
+        const response = await register(email,password)
+        dispatch(authActions.setRegistrationUserDetails(response.data))
     }
 )
 
-export const registration = createAsyncThunk(
-    'register/auth',
-    async function({email, password}) {
-        try {
-            const response = await register(email, password);
-            console.log(response)
-            localStorage.setItem('token', response.data.accessToken);
-            const data = response.data
-        } catch (e) {
-            console.log(e.response?.data?.message);
-        }
+export const verifyEmailThunk = createAsyncThunk(
+    'verify-email',
+    async (token) => {
+        await verifyEmail(token)
     }
 )
 
-export const logout = createAsyncThunk(
-    'logout/auth',
-    async function() {
-        try {
-            const response = await logout()
-            localStorage.removeItem('token');
-            this.setAuth(false);
-        } catch (e) {
-            console.log(e.response?.data?.message);
-        }
+export const loginThunk = createAsyncThunk(
+    'login',
+    async ({email,password}) => {
+        const response = await login(email,password)
+        localStorage.setItem('access_token', response.data.access)
+        localStorage.setItem('refresh_token', response.data.refresh)
+    }
+)
+
+export const googleLoginThunk = createAsyncThunk(
+    'google-login',
+    async ({email,password}) => {
+        const response = await googleLogin(email,password)
+        localStorage.setItem('access_token', response.data.access)
+        localStorage.setItem('refresh_token', response.data.refresh)
     }
 )
 
 const initialState = {
-    isAuth : false,
-    isLoading : false
+    isAuth: false,
+    isLoading: false,
+    registrationIsSuccessful: false,
+    verificationIsSuccessful: false,
 }
 
-const authSlice = createSlice({
-    name : 'auth',
-    initialState : initialState,
-    extraReducers :(builder) => {
-        builder.addCase(login.pending,(state) => {
-            state.isAuth = false
+export const AuthSlice = createSlice({
+    name: 'auth',
+    initialState: initialState,
+    reducers: {
+        setIsAuthAction: (state, action) => {
+            state.isAuth = action.payload
+        },
+        setAuthErrorMessageAction: (state, action ) => {
+            state.errorMessage = action.payload
+        },
+        setRegistrationUserDetails: (state, action) => {
+            state.registrationUserDetails = action.payload
+        }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(loginThunk.pending, (state) => {
+            state.isLoading = true;
         })
-        builder.addCase(login.fulfilled,(state) => {
-            state.isAuth = true
+        builder.addCase(loginThunk.rejected, (state, action) => {
+            state.isLoading = false;
+            state.errorMessage = action?.error.message;
         })
-        // builder.addCase(registration.pending,(state) => {
-        //     state.isAuth = false
-        // })
-        // builder.addCase(registration.fulfilled,(state) => {
-        //     state.isAuth = true
-        // })
+        builder.addCase(loginThunk.fulfilled, (state) => {
+            state.isAuth = true;
+            state.isLoading = false;
+        })
+        builder.addCase(googleLoginThunk.pending, (state) => {
+            state.isLoading = true;
+        })
+        builder.addCase(googleLoginThunk.rejected, (state, action) => {
+            state.isLoading = false;
+            state.errorMessage = action?.error.message;
+        })
+        builder.addCase(googleLoginThunk.fulfilled, (state) => {
+            state.isAuth = true;
+            state.isLoading = false;
+        })
+        builder.addCase(verifyEmailThunk.rejected, (state, action) => {
+            state.isLoading = false;
+            state.errorMessage = action?.error.message;
+        })
+        builder.addCase(verifyEmailThunk.pending, (state) => {
+            state.isLoading = true;
+        })
+        builder.addCase(verifyEmailThunk.fulfilled, (state) => {
+            state.verificationIsSuccessful = true;
+            state.isLoading = false;
+        })
+        builder.addCase(registrationThunk.rejected, (state, action) => {
+            state.isLoading = false;
+            state.errorMessage = action?.error.message;
+        })
+        builder.addCase(registrationThunk.pending, (state) => {
+            state.isLoading = true;
+        })
+        builder.addCase(registrationThunk.fulfilled, (state) => {
+            state.registrationIsSuccessful = true;
+            state.isLoading = false;
+        })
     }
 })
 
-export default authSlice.reducer
+export const authActions = AuthSlice.actions
+export const authReducers = AuthSlice.reducer
