@@ -44,12 +44,11 @@ export const logout = createAsyncThunk(
         }
     }
 )
+
 const initialState = {
-    users : [],
     isAuth : false,
     isLoading : false
 }
-
 
 const authSlice = createSlice({
     name : 'auth',
@@ -69,3 +68,5 @@ const authSlice = createSlice({
         })
     }
 })
+
+export default authSlice.reducer
