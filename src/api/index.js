@@ -1,45 +1,62 @@
-import axios from 'axios';
+import axios, {AxiosInstance} from "axios";
 
-export const API_URL = `http://localhost:5000/api`
 
-const $api = axios.create({
-    withCredentials: true,
-    baseURL: API_URL
-})
+export const API_URL = `https://splunk.backpackertrail.de`
 
-$api.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
-    return config;
-})
 
-$api.interceptors.response.use((config) => {
-    return config;
-},async (error) => {
-    const originalRequest = error.config;
-    if (error.response.status == 401 && error.config && !error.config._isRetry) {
-        originalRequest._isRetry = true;
-        try {
-            const response = await axios.get(`${API_URL}/refresh`, {withCredentials: true})
-            localStorage.setItem('token', response.data.accessToken);
-            return $api.request(originalRequest);
-        } catch (e) {
-            console.log('НЕ АВТОРИЗОВАН')
+export const client = axios.create({
+    baseURL: API_URL,
+    timeout: 10000,
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+    }
+});
+
+
+const setConfiguration = (AxiosInstance) => {
+    client = AxiosInstance
+    client.interceptors.request.use(
+        (config) => {
+            config.headers && (config.headers['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`)
+            return config
+        },
+        error => Promise.reject(error)
+    )
+}
+
+setConfiguration(client)
+
+
+export const register = async (email, password) => {
+    return await client.post('users/', {email,password})
+}
+
+export const login = async (email,password) => {
+    let data = new FormData()
+    data.append('email', email)
+    data.append('password', password)
+    return await client.post('token/', data, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
         }
-    }
-    throw error;
-})
+    })
+}
 
-export default class AuthService {
-    async login(email, password) {
-        return $api.post('/token', {email, password})
-    }
+export const logout = async () => {
+    localStorage.removeItem('access_token')
+    localStorage.removeItem('refresh_token')
+}
 
-    async registration(email, password){
-        return $api.post('/registration', {email, password})
-    }
 
-    async logout() {
-        return $api.post('/logout')
-    }
+export const refreshToken = async () => {
+    return await client.post('token/refresh/', {
+        'refresh': tokenPayload.refresh || ''
+    })
+}
 
+export const verifyEmail = async () => {
+    return await client.post(`users/verify/`, {
+        "verification-token": token,
+    })
 }

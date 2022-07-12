@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login, registration } from "../../store/authSlice/authSlice";
 
-
-
 function LoginForm(){
     const dispatch = useDispatch()
 
@@ -35,3 +33,5 @@ function LoginForm(){
         </>
     )
 }
+
+export default LoginForm

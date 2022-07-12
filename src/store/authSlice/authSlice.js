@@ -1,6 +1,5 @@
-import AuthService from "../../api";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-
+import {register, login, logout} from './../index'
 
 
 
@@ -8,7 +7,7 @@ export const login = createAsyncThunk(
     'login/auth',
     async function({email, password}) {
         try {
-            const response = await AuthService.login(email, password);
+            const response = await login(email, password);
             console.log(response)
             localStorage.setItem('token', response.data.accessToken);
             const data = response.data
@@ -19,10 +18,10 @@ export const login = createAsyncThunk(
 )
 
 export const registration = createAsyncThunk(
-    'login/auth',
+    'register/auth',
     async function({email, password}) {
         try {
-            const response = await AuthService.registration(email, password);
+            const response = await register(email, password);
             console.log(response)
             localStorage.setItem('token', response.data.accessToken);
             const data = response.data
@@ -33,10 +32,10 @@ export const registration = createAsyncThunk(
 )
 
 export const logout = createAsyncThunk(
-    'login/auth',
+    'logout/auth',
     async function() {
         try {
-            const response = await AuthService.logout();
+            const response = await logout()
             localStorage.removeItem('token');
             this.setAuth(false);
         } catch (e) {
@@ -60,12 +59,12 @@ const authSlice = createSlice({
         builder.addCase(login.fulfilled,(state) => {
             state.isAuth = true
         })
-        builder.addCase(registration.pending,(state) => {
-            state.isAuth = false
-        })
-        builder.addCase(registration.fulfilled,(state) => {
-            state.isAuth = true
-        })
+        // builder.addCase(registration.pending,(state) => {
+        //     state.isAuth = false
+        // })
+        // builder.addCase(registration.fulfilled,(state) => {
+        //     state.isAuth = true
+        // })
     }
 })
 
