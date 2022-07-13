@@ -2,4 +2,43 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgb(54, 54, 54);
+    color: white;
+    padding: 0.5%;
+}
+
+
+.login{
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sign_in{
+    background-color: white;
+    width: 35%;
+    border-radius: 15px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+}
+
+.sign_in_nav{
+    text-decoration: none;
+    color: rgb(54, 54, 54);
+    font-weight: 900;
+}
+
+.sign_up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign_up_nav{
+    text-decoration: none;
+    color: white;
+    font-weight: 900;   
 }

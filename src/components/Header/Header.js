@@ -12,8 +12,12 @@ function Header(){
                         <h2>Logo</h2>
                     </div>
                     <div className={style.login}>
-                        <NavLink to='/login'>Login</NavLink>
-                        <NavLink to='/registration'>Регистрация</NavLink>
+                        <div className={style.sign_in}>
+                            <NavLink className={style.sign_in_nav} to='/login'>Login</NavLink>
+                        </div>
+                        <div className={style.sign_up}>
+                            <NavLink className={style.sign_up_nav} to='/registration'>Регистрация</NavLink>
+                        </div>
                     </div>
                 </div>
             </div>
