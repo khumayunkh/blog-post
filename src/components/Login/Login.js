@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import style from './login.module.css'
 import { useDispatch } from "react-redux";
-import { login, loginThunk, registration, registrationThunk } from "../../store/authSlice/authSlice";
+import { loginThunk,  registrationThunk } from "../../store/authSlice/authSlice";
 
 function LoginForm(){
     const dispatch = useDispatch()
