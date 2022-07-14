@@ -4,15 +4,40 @@
     align-items: center;
     background-color: rgb(54, 54, 54);
     color: white;
-    position: absolute;
+    position:fixed;
     bottom: 0;
     width: 100%;
     height: 4rem;   
 }
 
 
+.icons{
+    width: 5%;
+    border-radius: 15px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    transition-duration: 1s;
+    transition-property: background-color;
+}
+.icons :hover{
+    background-color: white;
+    width: 100%;
+    border-radius: 15px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+}
 .tags{
     text-decoration: none;
     color: white;
     font-weight: 900; 
+}
+
+.tags:hover{
+    color: rgb(54, 54, 54);
 }

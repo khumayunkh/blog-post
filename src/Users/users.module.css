@@ -1,0 +1,55 @@
+.users{
+    margin-bottom: 10%;
+}
+
+.users_in{
+    margin-top: 2%;
+}
+
+.input{
+    display: flex;
+    justify-content: center;
+}
+
+.users_input{
+    font-weight: 500;
+    border: none;
+    background-color: rgb(230, 230, 230);
+    width: 40%;
+    border-radius: 10px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    color: rgb(54, 54, 54);
+    padding-left: 2%;
+}
+
+
+
+.user{
+    margin: 3%;
+    align-items: center;
+    display: flex;
+    justify-content:space-evenly;
+    box-shadow: 2px 5px 150px rgb(117, 116, 116);
+    width: 30%;
+    height: 200px;
+    border-radius: 15px;
+}
+
+.user img{
+    width: 90px;
+}
+
+
+.user_email{
+    color: rgb(54, 54, 54);
+}
+.user_email button{
+    text-decoration: none;
+    border-style: none;
+    background-color: white;
+    color: rgb(52, 52, 221);
+}
