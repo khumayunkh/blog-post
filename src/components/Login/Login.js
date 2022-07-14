@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import style from './login.module.css'
-import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginThunk } from "../../store/authSlice/authSlice";
+import { loginThunk,  registrationThunk } from "../../store/authSlice/authSlice";
 
 function LoginForm(){
     const dispatch = useDispatch()
@@ -13,6 +12,12 @@ function LoginForm(){
 
     const handleSubmit = () =>{
         dispatch(loginThunk(email,password))
+        setEmail('')
+        setPassword('')
+    }
+
+    const handleRegister = () => {
+        dispatch(registrationThunk(email,password))
         setEmail('')
         setPassword('')
     }
@@ -39,9 +44,9 @@ function LoginForm(){
                 <button className={style.btn_login} onClick={handleSubmit}>
                     Логин
                 </button>
-                <NavLink to='/registration' className={style.btn_sign_in} >
+                <button className={style.btn_sign_in} onClick={handleRegister}>
                     Регистрация
-                </NavLink>
+                </button>
             </div>
         </div>
         </>
