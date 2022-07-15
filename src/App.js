@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import AddArticles from "./components/AddArticls/Add"
 import Header from "./components/Header/Header"
 import LoginForm from "./components/Login/Login"
+import Profile from "./components/Profile/Profile"
 import Registr from "./components/Registration/Registration"
 import Footer from "./Footer/Footer"
 import Users from "./Users/Users"
@@ -27,6 +28,10 @@ function App() {
       <Route
         path="/add"
         element={<AddArticles/>}
+      />
+      <Route
+        path="/profile"
+        element={<Profile/>}
       />
     </Routes>
     <Footer/>

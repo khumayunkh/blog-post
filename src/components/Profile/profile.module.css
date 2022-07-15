@@ -1,0 +1,38 @@
+.profile_in{
+    margin: 1%;
+    margin-bottom: 8%;
+    display: flex;
+    flex-direction: column;
+    color: rgb(54, 54, 54);
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 10%;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.article{
+    margin-top: 2%;
+    align-items: center;
+    display: flex;
+    box-shadow: 2px 5px 150px rgb(117, 116, 116);
+    width: 80%;
+    text-align: center;
+    min-height: 100px;
+    border-radius: 15px;
+}
+
+.article h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 1%;
+    font-weight: 500;
+}
