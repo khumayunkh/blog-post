@@ -13,10 +13,10 @@ function Footer(){
                         <NavLink className={style.tags} to='/users'>Users</NavLink>
                     </div>
                     <div className={style.icons}>
-                        <NavLink className={style.tags} to='/articls'>Articls</NavLink>
+                        <NavLink className={style.tags} to='/articles'>Articles</NavLink>
                     </div>
                     <div className={style.icons}>
-                        <NavLink className={style.tags} to='/add'>Add Articls</NavLink>
+                        <NavLink className={style.tags} to='/add'>Add Article</NavLink>
                     </div>
                     <div className={style.icons}>
                         <NavLink className={style.tags} to='/profile'>Profile</NavLink>
