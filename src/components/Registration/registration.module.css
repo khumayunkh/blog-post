@@ -1,0 +1,40 @@
+.RegistrForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+}
+
+.RegistrForm_in{
+    width: 23%;
+    height: 400px;
+    box-shadow: 5px 10px 100px rgb(117, 116, 116);
+    background-color: white;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: inherit;
+}
+
+.input{
+    background-color: white;
+    border-style: none;
+    height: 4vh;
+    width: 15vw;
+    border: 1px solid rgb(54, 54, 54);
+    border-radius: 10px;  
+    padding-left: 25px;
+    margin: 3%;
+}
+
+
+.btn_registr{
+    margin: 2%;
+    height: 4vh;
+    width: 16vw;
+    border-style: none;
+    border-radius: 10px;
+    background-color: rgb(54, 54, 54);
+    color: white;
+}
