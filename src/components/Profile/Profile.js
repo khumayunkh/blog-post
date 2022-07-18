@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import style from './profile.module.css'
 
 
@@ -7,38 +8,13 @@ function Profile(){
         <>
         <div className={style.profile}>
             <div className={style.container}>
-                <div className={style.profile_in}>
-                    <div className={style.header}>
-                        <img src="https://freesvg.org/img/abstract-user-flat-3.png"/>
-                        <div className={style.email}>
-                            <h2>admin@admin.com</h2>
-                        </div>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
-                    </div>
+                <div className={style.header}>
+                    <h1>Your stories</h1>
+                    <NavLink className={style.btn} to='/add'>Wrile a story</NavLink>
+                </div>
+                <h3 className={style.published}>Published</h3>
+                <div className={style.story}>
+                    <h3>You haven’t published any public stories yet.</h3>
                 </div>
             </div>
         </div>
