@@ -8,38 +8,8 @@ function AddArticles(){
             <div className={style.container}>
                 <div className={style.add_in}>
                     <div className={style.input}>
-                        <input placeholder="Text..."/>
-                        <button>Post</button>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
-                    </div>
-                    <div className={style.article}>
-                        <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </h2>
+                        <input placeholder="Tell your story..."/>
+                        <button>Publish</button>
                     </div>
                 </div>
             </div>

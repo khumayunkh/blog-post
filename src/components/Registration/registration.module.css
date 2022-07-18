@@ -28,6 +28,9 @@
     margin: 3%;
 }
 
+.input:focus {
+    outline: none;
+}
 
 .btn_registr{
     margin: 2%;

@@ -26,6 +26,10 @@
     padding-left: 2%;
 }
 
+.users_input:focus {
+    outline: none;
+}
+
 
 
 .user{
