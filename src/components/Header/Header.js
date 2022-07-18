@@ -9,7 +9,7 @@ function Header(){
             <div className={style.container}>
                 <div className={style.header_in}>
                     <div className={style.logo}>
-                        <h2>Logo</h2>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/BBC_logo_white.svg/1200px-BBC_logo_white.svg.png"/>
                     </div>
                     <div className={style.login}>
                         <div className={style.sign_in}>
