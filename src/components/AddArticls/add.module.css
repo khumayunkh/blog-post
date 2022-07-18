@@ -16,13 +16,13 @@
 
 
 .input button{
+    font-weight: 300;
     height: 4.5vh;
     width: 10%;
     border-style: none;
-    border-radius: 10px;
+    border-radius: 40px;
     background-color: rgb(54, 54, 54);
     color: white;
-    font-weight: 600;
 }
 
 .input input{
