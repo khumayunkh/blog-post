@@ -32,12 +32,15 @@
 
 
 
+
+
 .user{
     margin: 3%;
+    flex-wrap: wrap;
     align-items: center;
     display: flex;
     justify-content:space-evenly;
-    box-shadow: 2px 5px 150px rgb(117, 116, 116);
+    box-shadow: 1px 1px 60px rgb(117, 116, 116);
     width: 30%;
     height: 200px;
     border-radius: 15px;
