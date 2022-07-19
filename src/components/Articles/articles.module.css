@@ -15,11 +15,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: start;
 }
 
 .header{
     display: flex;
-    align-items: flex-end;
+    justify-content: flex-start;
+    align-items: center
 }
 
 .header h4{
@@ -27,7 +29,17 @@
     font-weight: 400;
 }
 
+/* .header h4{
+    margin-left: 15px;
+    font-weight: 400;
+}
+
 .header img{
+    width: 10%;
+    border-radius: 50%;
+} */
+
+.logo{
     width: 10%;
     border-radius: 50%;
 }
