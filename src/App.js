@@ -6,8 +6,8 @@ import Header from "./components/Header/Header"
 import LoginForm from "./components/Login/Login"
 import Profile from "./components/Profile/Profile"
 import Registr from "./components/Registration/Registration"
-import Footer from "./Footer/Footer"
-import Users from "./Users/Users"
+import Footer from "./components/Footer/Footer"
+import Users from "./components/Users/Users"
 
 function App() {
   return (

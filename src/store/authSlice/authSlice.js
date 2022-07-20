@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import {register, login, verifyEmail, googleLogin} from './../../api/index'
+import {register, login, verifyEmail, googleLogin} from '../../api/auth'
 
 
 
