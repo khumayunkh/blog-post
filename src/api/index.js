@@ -1,4 +1,4 @@
-import axios, {AxiosInstance} from "axios";
+import axios from "axios";
 
 
 export const client = axios.create({
@@ -11,12 +11,12 @@ export const client = axios.create({
 });
 
 
-const setConfiguration = (AxiosInstance) => {
+const setConfiguration = (client) => {
     client.interceptors.request.use(
         (config) => {
             config.headers && (config.headers['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`)
             return config
-        },
+        },  
         error => Promise.reject(error)
     )
 }

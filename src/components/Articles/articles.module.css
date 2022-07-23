@@ -19,6 +19,7 @@
 }
 
 .header{
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center
@@ -29,12 +30,9 @@
     font-weight: 400;
 }
 
-/* .header h4{
-    margin-left: 15px;
-    font-weight: 400;
-}
 
-.header img{
+
+/* .header img{
     width: 10%;
     border-radius: 50%;
 } */
