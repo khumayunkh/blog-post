@@ -3,6 +3,14 @@ import {register, login, verifyEmail, googleLogin} from '../../api/auth'
 
 
 
+
+const initialState = {
+    isAuth: false,
+    isLoading: false,
+    registrationIsSuccessful: false,
+    verificationIsSuccessful: false,
+}
+
 export const registrationThunk = createAsyncThunk(
     'register',
     async ({email,password}, {dispatch}) => {
@@ -36,12 +44,6 @@ export const googleLoginThunk = createAsyncThunk(
     }
 )
 
-const initialState = {
-    isAuth: false,
-    isLoading: false,
-    registrationIsSuccessful: false,
-    verificationIsSuccessful: false,
-}
 
 export const AuthSlice = createSlice({
     name: 'auth',
