@@ -14,7 +14,7 @@ function Registr(){
 
 
     const handleSubmit = () =>{
-        dispatch(registrationThunk({username: username, email: email, password: password}))
+        dispatch(registrationThunk({username,email,password}))
         setUsername('')
         setEmail('')
         setPassword('')
