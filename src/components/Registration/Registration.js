@@ -2,62 +2,58 @@ import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import style from './registration.module.css'
 import { registrationThunk } from "../../store/authSlice/authSlice";
+import { useForm } from "react-hook-form";
 
 
 function Registr(){
-
+    const {register, handleSubmit} = useForm()
     const dispatch = useDispatch()
 
-    const [email, setEmail] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const usernamedRegister = register("username", {required: true})
+    const emailRegister = register("email", {required: true})
+    const passwordRegister = register("password", {required: true})
 
-
-    const handleSubmit = () =>{
-        dispatch(registrationThunk({username,email,password}))
-        setUsername('')
-        setEmail('')
-        setPassword('')
+    const onSubmit = async(data) => {
+        dispatch(registrationThunk({username: data.username,
+            email : data.email,
+            password : data.password
+        }))
     }
-
-
-    // const onSubmit = (data: { email: string, password: string }) => {
-    //     loginThunk({username: data.email, password: data.password})
-    // };
 
     return(
         <>
         <div className={style.RegistrForm}>
             <div className={style.RegistrForm_in}>
                 <h1>Регистрация</h1>
+                <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     className={style.input}
-                    onChange={e => setUsername(e.target.value)}
-                    value={username}
+                    {...usernamedRegister}
                     type="text"
                     placeholder='username'
                 />
                 <input
                     className={style.input}
-                    onChange={e => setEmail(e.target.value)}
-                    value={email}
+                    {...emailRegister}
                     type="text"
                     placeholder='Email'
                 />
                 <input
                     className={style.input}
-                    onChange={e => setPassword(e.target.value)}
-                    value={password}
+                    {...passwordRegister}
                     type="password"
                     placeholder='Пароль'
                 />
-                <button className={style.btn_registr} onClick={handleSubmit}>
+                <button className={style.btn_registr}>
                     Регистрация
                 </button>
+                </form>
             </div>
         </div>
         </>
     )
 }
+
+
 
 export default Registr
