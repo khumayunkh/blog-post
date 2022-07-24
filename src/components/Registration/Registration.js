@@ -9,20 +9,34 @@ function Registr(){
     const dispatch = useDispatch()
 
     const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
 
     const handleSubmit = () =>{
-        dispatch(registrationThunk(email,password))
+        dispatch(registrationThunk({username: username, email: email, password: password}))
+        setUsername('')
         setEmail('')
         setPassword('')
     }
+
+
+    // const onSubmit = (data: { email: string, password: string }) => {
+    //     loginThunk({username: data.email, password: data.password})
+    // };
 
     return(
         <>
         <div className={style.RegistrForm}>
             <div className={style.RegistrForm_in}>
                 <h1>Регистрация</h1>
+                <input
+                    className={style.input}
+                    onChange={e => setUsername(e.target.value)}
+                    value={username}
+                    type="text"
+                    placeholder='username'
+                />
                 <input
                     className={style.input}
                     onChange={e => setEmail(e.target.value)}

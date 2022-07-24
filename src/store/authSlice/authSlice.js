@@ -13,8 +13,8 @@ const initialState = {
 
 export const registrationThunk = createAsyncThunk(
     'register',
-    async ({email,password}, {dispatch}) => {
-        const response = await register(email,password)
+    async (data, {dispatch}) => {
+        const response = await register(data)
         dispatch(authActions.setRegistrationUserDetails(response.data))
     }
 )
