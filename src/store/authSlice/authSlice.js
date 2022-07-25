@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import {register, login, verifyEmail, googleLogin} from '../../api/auth'
 
 
-
-
 const initialState = {
     isAuth: false,
     isLoading: false,
@@ -13,8 +11,8 @@ const initialState = {
 
 export const registrationThunk = createAsyncThunk(
     'register',
-    async (initialRegister, {dispatch}) => {
-        const response = await register(initialRegister)
+    async ({username, email, password}, {dispatch}) => {
+        const response = await register({username, email, password})
         dispatch(authActions.setRegistrationUserDetails(response.data))
     }
 )
