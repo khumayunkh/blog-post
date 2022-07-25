@@ -9,12 +9,13 @@ function Registr(){
     const {register, handleSubmit} = useForm()
     const dispatch = useDispatch()
 
-    const usernamedRegister = register("username", {required: true})
+    const usernamedRegister = register("username")
     const emailRegister = register("email", {required: true})
     const passwordRegister = register("password", {required: true})
 
     const onSubmit = async(data) => {
-        dispatch(registrationThunk({username: data.username,
+        dispatch(registrationThunk({
+            username: data.username,
             email : data.email,
             password : data.password
         }))

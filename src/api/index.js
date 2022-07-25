@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const client = axios.create({
-    baseURL: 'https://splunk.backpackertrail.de',
+    baseURL: 'https://splunk.backpackertrail.de/',
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
