@@ -2,11 +2,7 @@ import {client} from "./index";
 
 
 export const register = async ({username, email, password}) => {
-    return await client.post('users/', {
-        username,
-        email,
-        password
-    })
+    return await client.post('users/', {username, email, password})
 }
 
 export const login = async (email,password) => {
