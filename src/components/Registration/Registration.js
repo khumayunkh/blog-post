@@ -20,7 +20,7 @@ function Registr(){
         }
         dispatch(registrationThunk(payload))
     }
-
+    
     return(
         <>
         <div className={style.RegistrForm}>
