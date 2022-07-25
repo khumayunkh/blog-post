@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import style from './registration.module.css'
 import { registrationThunk } from "../../store/authSlice/authSlice";
