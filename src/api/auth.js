@@ -3,13 +3,9 @@ import {client} from "./index";
 
 export const register = async ({username, email, password}) => {
     return await client.post('users/', {
-        id: '',
-        username :username,
-        email: email,
-        password: password,
-        verified: false,
-        joined_datetime : '',
-        is_active: false
+        username : username,
+        email : email,
+        password : password,
     })
 }
 
