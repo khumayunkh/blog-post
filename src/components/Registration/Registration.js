@@ -12,6 +12,7 @@ function Registr(){
     const usernamedRegister = register("username")
     const emailRegister = register("email")
     const passwordRegister = register("password")
+    
     const onSubmit = async(data) => {
         const payload = {
             username: data.username,
