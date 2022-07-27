@@ -40,7 +40,7 @@ function App() {
         element={<Profile/>}
       />
       <Route
-        path="/verify"
+        path="/users/verify/:token"
         element={<Verify/>}
       />
     </Routes>
