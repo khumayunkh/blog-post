@@ -8,6 +8,7 @@ import Profile from "./components/Profile/Profile"
 import Registr from "./components/Registration/Registration"
 import Footer from "./components/Footer/Footer"
 import Users from "./components/Users/Users"
+import Verify from "./components/Verify/Verify"
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
       <Route
         path="/profile"
         element={<Profile/>}
+      />
+      <Route
+        path="/verify"
+        element={<Verify/>}
       />
     </Routes>
     <Footer/>
