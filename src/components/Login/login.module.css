@@ -5,6 +5,13 @@
     min-height: 600px;
 }
 
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
 .LoginForm_in{
     width: 23%;
     height: 400px;

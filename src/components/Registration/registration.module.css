@@ -17,6 +17,13 @@
     align-items: inherit;
 }
 
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
 .input{
     background-color: white;
     border-style: none;

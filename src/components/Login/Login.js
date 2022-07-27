@@ -27,7 +27,7 @@ function LoginForm(){
         <div className={style.LoginForm}>
             <div className={style.LoginForm_in}>
                 <h1>Login</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
                 <input
                     className={style.input}
                     {...emailLogin}
@@ -38,7 +38,7 @@ function LoginForm(){
                     className={style.input}
                     {...passwordLogin}
                     type="password"
-                    placeholder='Пароль'
+                    placeholder='Password'
                 />
                 <button className={style.btn_login}>
                     Login

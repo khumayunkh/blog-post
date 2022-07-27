@@ -27,12 +27,12 @@ function Registr(){
         <div className={style.RegistrForm}>
             <div className={style.RegistrForm_in}>
                 <h1>Регистрация</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
                 <input
                     className={style.input}
                     {...usernamedRegister}
                     type="text"
-                    placeholder='username'
+                    placeholder='Username'
                 />
                 <input
                     className={style.input}
@@ -44,7 +44,7 @@ function Registr(){
                     className={style.input}
                     {...passwordRegister}
                     type="password"
-                    placeholder='Пароль'
+                    placeholder='Password'
                 />
                 <button className={style.btn_registr}>
                     Регистрация
