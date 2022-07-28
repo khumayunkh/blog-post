@@ -12,15 +12,12 @@ function LoginForm(){
     const emailLogin = register("email", {required: true})
     const passwordLogin = register("password", {required: true})
 
-
     const onSubmit = (data) =>{
         dispatch(loginThunk({
             email: data.email,
             password : data.password
         }))
     }
-
-    
 
     return(
         <>
