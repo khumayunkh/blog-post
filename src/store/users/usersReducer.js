@@ -4,7 +4,7 @@ import {
 } from "@reduxjs/toolkit";
 import axios from "axios";
 import {getMe} from "../../api/users";
-import {authActions} from "../auth/AuthReducer";
+import {authActions} from "../auth/authReducer";
 
 
 export const getMeThunk = createAsyncThunk(
@@ -50,11 +50,11 @@ export const UserSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(
-            getMeThunk.pending, (state, action) => {
+            getMeThunk.pending, (state) => {
                 state.isLoading = true
             })
         builder.addCase(
-            getMeThunk.fulfilled, (state, action) => {
+            getMeThunk.fulfilled, (state) => {
                 state.isLoading = false
             })
         builder.addCase(

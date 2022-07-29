@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getMeThunk } from "../../store/usersSlice/usersSlice";
+import { getMeThunk } from "../../store/users/usersReducer";
 import style from './profile.module.css'
 
 
