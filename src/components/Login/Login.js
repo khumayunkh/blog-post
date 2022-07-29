@@ -1,7 +1,7 @@
 import React from "react";
 import style from './login.module.css'
 import { useDispatch } from "react-redux";
-import { loginThunk } from "../../store/authSlice/authSlice";
+import { loginThunk } from "../../store/auth/authReducer";
 import { NavLink } from "react-router-dom";
 import {useForm} from 'react-hook-form'
 

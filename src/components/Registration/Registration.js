@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import style from './registration.module.css'
-import { registrationThunk } from "../../store/authSlice/authSlice";
+import { registrationThunk } from "../../store/auth/authReducer";
 import { useForm } from "react-hook-form";
 
 
