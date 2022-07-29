@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getMeThunk } from "../../store/usersSlice/usersSlice";
 import style from './profile.module.css'
 
 
 function Profile(){
+    const dispatch = useDispatch()
+
+    useEffect(() =>{
+        dispatch(getMeThunk())
+    }, [])
+
     return(
         <>
         <div className={style.profile}>
