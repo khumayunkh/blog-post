@@ -103,7 +103,7 @@ export const AuthSlice = createSlice({
             state.isLoading = false;
         })
     }
-})
+}) 
 
 export const authActions = AuthSlice.actions
 export const authReducers = AuthSlice.reducer

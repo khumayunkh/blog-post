@@ -11,7 +11,7 @@ function Profile(){
     useEffect(() =>{
         dispatch(getMeThunk())
     }, [])
-
+    
     return(
         <>
         <div className={style.profile}>
