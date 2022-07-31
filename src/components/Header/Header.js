@@ -6,19 +6,19 @@ import { getMeThunk } from "../../store/users/usersReducer";
 import style from './header.module.css'
 
 function Header(){
-    const isAuth = useSelector(state => state.auth.isAuth)
+    const {isAuth} = useSelector(state => state.auth)
     const {me} = useSelector(state => state.user)
-
     const dispatch = useDispatch()
 
-    
     const logOut = () => {
-        logout()
+        logout().then(() => {
+            isAuth(false)
+        })
+        console.log(isAuth)
         dispatch(getMeThunk())
     }
-
+    
     return(
-    <>
        <div className={style.header}>
             <div className={style.container}>
                 <div className={style.header_in}>
@@ -28,7 +28,7 @@ function Header(){
                    {isAuth === true ? 
                    <div className={style.me}>
                         <h3>{me.username}</h3>
-                        <NavLink className={style.logout} onClick={() => logOut()} to="/login">Logout</NavLink>
+                        <NavLink className={style.logout} onClick={() => logOut()} to="/">Logout</NavLink>
                    </div> :
                    <div className={style.login}>
                         <div className={style.sign_in}>
@@ -41,7 +41,6 @@ function Header(){
                 </div>
             </div>
         </div>
-    </>
     )
 }
 
