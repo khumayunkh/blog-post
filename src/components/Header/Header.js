@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { logout } from "../../api/auth";
+import { getMeThunk } from "../../store/users/usersReducer";
 import style from './header.module.css'
 
 function Header(){
@@ -12,9 +13,8 @@ function Header(){
 
     
     const logOut = () => {
-        logout().then((_) => {
-            isAuth(false)
-        })
+        logout()
+        dispatch(getMeThunk())
     }
 
     return(

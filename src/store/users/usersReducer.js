@@ -13,7 +13,6 @@ export const getMeThunk = createAsyncThunk(
         try {
             const response = await getMe()
             await dispatch(userActions.setMeAction(response.data))
-            console.log(userActions.setMeAction(response.data))
             return dispatch(authActions.setIsAuthAction(true))
         } catch (error) {
             if (axios.isAxiosError(error)) {

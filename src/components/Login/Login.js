@@ -37,9 +37,9 @@ function LoginForm(){
                     type="password"
                     placeholder='Password'
                 />
-                <NavLink to='/profile' className={style.btn_login}>
+                <button to='/profile' className={style.btn_login}>
                     Login
-                </NavLink>
+                </button>
                 </form>
                 <NavLink to='/registr' className={style.btn_sign_in}>
                     Регистрация
