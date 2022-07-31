@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getMeThunk } from "../../store/users/usersReducer";
 import style from './profile.module.css'
@@ -7,6 +7,8 @@ import style from './profile.module.css'
 
 function Profile(){
     const dispatch = useDispatch()
+
+    const me = useSelector(state => state.user.me)
 
     useEffect(() =>{
         dispatch(getMeThunk())
