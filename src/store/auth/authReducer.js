@@ -43,6 +43,7 @@ export const googleLoginThunk = createAsyncThunk(
 )
 
 
+
 export const AuthSlice = createSlice({
     name: 'auth',
     initialState: initialState,
