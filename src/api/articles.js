@@ -1,7 +1,7 @@
 import {client} from "./index";
 
 
-export const addArticle = async ({tags, title, content}) => {
+export const addArticles = async ({tags, title, content}) => {
     return await client.post('/articles/', {
         tags : tags,
         title : title,

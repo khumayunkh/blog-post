@@ -1,16 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { addArticle } from "../../api/articles"
+import { addArticles } from "../../api/articles"
 
 
 export const addNewArticlesThunk = createAsyncThunk(
-    'todos/addNewTodos',
-    async function({tags, title, content}, {dispatch}){
-        const response = await addArticle({tags, title, content})
+    'articles/addNewArticles',
+    async ({tags, title, content}, {dispatch}) => {
+        const response = await addArticles({tags, title, content})
         const data = await response.data
-        dispatch(addTodos(data))
+        dispatch(articlesActions.addArticle(data))
     }
 )
-
 
 const initialState = {
     articles : [],
@@ -18,11 +17,11 @@ const initialState = {
 }
 
 
-const todoSlice = createSlice({
-    name : 'todos',
+const articlesSlice = createSlice({
+    name : 'articles',
     initialState : initialState,
     reducers:{
-        addTodos(state, action){
+        addArticle(state, action){
             state.articles.push(action.payload)
         }
     },
@@ -37,3 +36,7 @@ const todoSlice = createSlice({
         builder.addCase(addNewArticlesThunk.rejected,(state,action) =>{})
     }
 })
+
+
+export const articlesActions = articlesSlice.actions
+export const articlesReducer = articlesSlice.reducer
