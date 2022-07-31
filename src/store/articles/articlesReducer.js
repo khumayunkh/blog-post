@@ -16,7 +16,6 @@ const initialState = {
     status : null
 }
 
-
 const articlesSlice = createSlice({
     name : 'articles',
     initialState : initialState,
