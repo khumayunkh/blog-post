@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import {register, login, verifyEmail, googleLogin} from '../../api/auth'
+import {register, login, verifyEmail, googleLogin, logout} from '../../api/auth'
 
 
 const initialState = {
@@ -41,8 +41,6 @@ export const googleLoginThunk = createAsyncThunk(
         localStorage.setItem('refresh_token', response.data.refresh)
     }
 )
-
-
 
 export const AuthSlice = createSlice({
     name: 'auth',

@@ -1,11 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { logout } from "../../api/auth";
 import style from './header.module.css'
 
 function Header(){
     const isAuth = useSelector(state => state.auth.isAuth)
     const {me} = useSelector(state => state.user)
+
+    const dispatch = useDispatch()
+
+    
+    const logOut = () => {
+        logout().then((_) => {
+            isAuth(false)
+        })
+    }
 
     return(
     <>
@@ -15,10 +25,10 @@ function Header(){
                     <div className={style.logo}>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/BBC_logo_white.svg/1200px-BBC_logo_white.svg.png"/>
                     </div>
-                   {isAuth ? 
+                   {isAuth === true ? 
                    <div className={style.me}>
                         <h3>{me.username}</h3>
-                        <button>Logout</button>
+                        <NavLink className={style.logout} onClick={() => logOut()} to="/login">Logout</NavLink>
                    </div> :
                    <div className={style.login}>
                         <div className={style.sign_in}>

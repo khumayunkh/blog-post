@@ -21,7 +21,7 @@ img{
 }
 
 
-.me button{
+.logout{
     color: rgb(54, 54, 54);
     font-weight: 900;
     background-color: white;
@@ -30,6 +30,10 @@ img{
     width: 5vw;
     border-radius: 20px;
     font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .login{
