@@ -11,13 +11,10 @@ function Header(){
     const dispatch = useDispatch()
 
     const logOut = () => {
-        logout().then(() => {
-            isAuth(false)
-        })
-        console.log(isAuth)
+        logout()
         dispatch(getMeThunk())
     }
-    
+
     return(
        <div className={style.header}>
             <div className={style.container}>
