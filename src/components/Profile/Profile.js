@@ -7,12 +7,6 @@ import style from './profile.module.css'
 
 function Profile(){
     const dispatch = useDispatch()
-
-    const me = useSelector(state => state.user.me)
-
-    useEffect(() =>{
-        dispatch(getMeThunk())
-    }, [])
     
     return(
         <>

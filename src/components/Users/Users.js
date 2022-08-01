@@ -9,7 +9,7 @@ function Users(){
 
     useEffect(() => {
         dispatch(getUsersThunk())
-    },[])
+    },dispatch)
 
     return(
         <>

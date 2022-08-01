@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginThunk } from "../../store/auth/authReducer";
 import { NavLink } from "react-router-dom";
 import {useForm} from 'react-hook-form'
+import { getMeThunk } from "../../store/users/usersReducer";
 
 function LoginForm(){
     const {register, handleSubmit} = useForm()
@@ -17,6 +18,10 @@ function LoginForm(){
             email: data.email,
             password : data.password
         }))
+    }
+
+    const getMe = () => {
+        dispatch(getMeThunk())
     }
 
     return(
@@ -37,7 +42,7 @@ function LoginForm(){
                     type="password"
                     placeholder='Password'
                 />
-                <button to='/profile' className={style.btn_login}>
+                <button onClick={getMe} to='/profile' className={style.btn_login}>
                     Login
                 </button>
                 </form>

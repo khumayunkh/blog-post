@@ -25,9 +25,9 @@ export const getMeThunk = createAsyncThunk(
 
 export const getUsersThunk = createAsyncThunk(
     'users',
-    async() => {
+    async function(){
         const response = await getUsers()
-        const data = response.data
+        const data = await response.data
         console.log(data)
         return data
     }
