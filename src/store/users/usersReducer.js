@@ -45,10 +45,13 @@ export const UserSlice = createSlice({
     name: 'me',
     initialState: UserState,
     reducers: {
+        setUsers : (state, action) => {
+            state.users = action.payload
+        },
         setMeAction: (state, action) => {
             state.me = action.payload
         },
-        searchUsers : (state,action) =>{
+        searchUsers : (state,action) => {
             state.users = state.usersByName.results.filter(item => item.user.username.toLowerCase().includes(action.payload)); 
         },
         removeUserErrorMessageAction: (state, action) => {
@@ -82,7 +85,7 @@ export const UserSlice = createSlice({
         builder.addCase(getUsersThunk.fulfilled, (state,action) => {
             state.isLoading = false
             state.users = action.payload
-            state.usersByName - action.payload
+            state.usersByName = action.payload
         })    
     }
 })
