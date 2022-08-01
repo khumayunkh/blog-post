@@ -1,5 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getUsersThunk } from "../../store/users/usersReducer";
 import style from './footer.module.css'
 
 

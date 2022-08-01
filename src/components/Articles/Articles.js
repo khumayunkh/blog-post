@@ -8,15 +8,15 @@ function Articles(){
     const dispatch = useDispatch()
     const {isAuth} = useSelector(state => state.auth)
     const articles = useSelector(state => state.articles.articles)
-
+    
     useEffect(() => {
         dispatch(getArticlesThunk())
-    }, [isAuth])
-
+    },[])
+    
     return(
        <div className={style.articles}>
             <div className={style.container}>
-                {articles.results.map( item => <div className={style.articles_in}>
+                {articles.map( item => <div className={style.articles_in}>
                     <div className={style.article}>
                         <div className={style.header}>
                             <img className={style.logo} src="https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png"/>
@@ -30,6 +30,5 @@ function Articles(){
         </div>
     )
 }
-
 
 export default Articles

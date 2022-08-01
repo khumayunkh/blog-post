@@ -13,9 +13,9 @@ export const addNewArticlesThunk = createAsyncThunk(
 
 export const getArticlesThunk = createAsyncThunk(
     'articles/getArticlesThunk',
-    async(_, {dispatch}) => {
+    async() => {
         const responce = await getArticles()
-        const data = await responce.data
+        const data = await responce.data.results
         return data
     }
 )

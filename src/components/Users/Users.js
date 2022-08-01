@@ -10,7 +10,7 @@ function Users(){
     
     useEffect(() => {
         dispatch(getUsersThunk())
-    },[isAuth])
+    },[])
      
     const users = useSelector(state => state.user.users)
 
@@ -19,7 +19,7 @@ function Users(){
             <div className={style.container}>
                 <div className={style.users_in}>
                     <UsersInput/>
-                    {users.results.map(item => 
+                    {users.map(item => 
                     <div className={style.user}>
                         <div className={style.logo}>
                             <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/2048px-OOjs_UI_icon_userAvatar.svg.png"/>

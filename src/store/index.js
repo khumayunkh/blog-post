@@ -10,6 +10,5 @@ export const store = configureStore({
         auth : authReducer,
         user : userReducer,
         articles : articlesReducer
-    },
-    devTools: true,
+    }
 })
