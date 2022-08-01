@@ -10,9 +10,9 @@ function Users(){
     
     useEffect(() => {
         dispatch(getUsersThunk())
-    },[])
+    },[isAuth])
      
-    const {users} = useSelector(state => state.user)
+    const users = useSelector(state => state.user.users)
 
     return(
         <div className={style.users}>

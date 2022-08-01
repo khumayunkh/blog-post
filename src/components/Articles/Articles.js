@@ -6,14 +6,13 @@ import style from './articles.module.css'
 
 function Articles(){
     const dispatch = useDispatch()
-
     const {isAuth} = useSelector(state => state.auth)
+    const articles = useSelector(state => state.articles.articles)
 
     useEffect(() => {
         dispatch(getArticlesThunk())
-    }, [])
+    }, [isAuth])
 
-    const {articles} = useSelector(state => state.articles)
     return(
        <div className={style.articles}>
             <div className={style.container}>
