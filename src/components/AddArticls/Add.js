@@ -1,11 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addNewArticlesThunk } from "../../store/articles/articlesReducer";
 import style from './add.module.css'
 
 function AddArticles(){
     const dispatch = useDispatch()
+    const {isAuth} = useSelector(state => state.auth)
     const {register, handleSubmit} = useForm()
 
     const nameAddArticles = register('tags')
@@ -22,7 +23,7 @@ function AddArticles(){
     
     return(
         <>
-        <div className={style.add}>
+       {isAuth === true ? <div className={style.add}>
             <div className={style.container}>
                 <div className={style.add_in}>
                     <form onSubmit={handleSubmit(onSubmit)} className={style.input}>
@@ -33,7 +34,7 @@ function AddArticles(){
                     </form>
                 </div>
             </div>
-        </div>
+        </div> : <></>}
         </>
     )
 }

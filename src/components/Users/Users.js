@@ -6,14 +6,15 @@ import style from './users.module.css'
 function Users(){
     const dispatch = useDispatch()
     const {users} = useSelector(state => state.user)
+    const {isAuth} = useSelector(state => state.auth)
 
     useEffect(() => {
         dispatch(getUsersThunk())
     },dispatch)
-
+    
     return(
         <>
-        <div className={style.users}>
+       {isAuth === true ?  <div className={style.users}>
             <div className={style.container}>
                 <div className={style.users_in}>
                     <div className={style.input}>
@@ -30,7 +31,7 @@ function Users(){
                     </div>)}
                 </div>
             </div>
-        </div>
+        </div> : <></>}
         </>
     )
 }

@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getMeThunk } from "../../store/users/usersReducer";
 import style from './profile.module.css'
 
 
 function Profile(){
     const dispatch = useDispatch()
-    
+    const {isAuth} = useSelector(state => state.auth)
+
     return(
         <>
-        <div className={style.profile}>
+        {isAuth === true ?<div className={style.profile}>
             <div className={style.container}>
                 <div className={style.header}>
                     <h1>Your stories</h1>
@@ -21,7 +21,7 @@ function Profile(){
                     <h3>You haven’t published any public stories yet.</h3>
                 </div>
             </div>
-        </div>
+        </div> : <></>}
         </>
     )
 }

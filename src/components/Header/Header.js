@@ -25,7 +25,7 @@ function Header(){
                    {isAuth === true ? 
                    <div className={style.me}>
                         <h3>{me.username}</h3>
-                        <NavLink className={style.logout} onClick={() => logOut()} to="/">Logout</NavLink>
+                        <NavLink className={style.logout} onClick={() => logOut()} to="/">LogOut</NavLink>
                    </div> :
                    <div className={style.login}>
                         <div className={style.sign_in}>

@@ -1,11 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import style from './articles.module.css'
 
 
 function Articles(){
+    const {isAuth} = useSelector(state => state.auth)
+
     return(
         <>
-        <div className={style.articles}>
+       {isAuth === true ? <div className={style.articles}>
             <div className={style.container}>
                 <div className={style.articles_in}>
                     <div className={style.article}>
@@ -65,7 +68,7 @@ function Articles(){
                     <img className={style.img} src="https://miro.medium.com/fit/c/200/134/1*b-8-vZ5CvvZ8jHGdkm9KFw.jpeg"/>
                 </div>
             </div>
-        </div>
+        </div> : <></>}
         </>
     )
 }
