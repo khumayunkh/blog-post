@@ -8,3 +8,7 @@ export const addArticles = async ({tags, title, content}) => {
         content : content,
     })
 }
+
+export const getArticles = async() => {
+    return await client.get('/articles/')
+}

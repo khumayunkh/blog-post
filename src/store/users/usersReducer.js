@@ -22,7 +22,7 @@ export const getMeThunk = createAsyncThunk(
         }
     }
 )
-
+    
 export const getUsersThunk = createAsyncThunk(
     'users',
     async function(){

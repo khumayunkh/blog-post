@@ -12,8 +12,8 @@ function Users(){
     useEffect(() => {
         dispatch(getUsersThunk())
     },dispatch)
+     
 
-    
     return(
         <>
        {isAuth === true ?  <div className={style.users}>
