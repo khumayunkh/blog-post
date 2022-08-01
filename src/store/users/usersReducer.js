@@ -52,7 +52,7 @@ export const UserSlice = createSlice({
             state.me = action.payload
         },
         searchUsers : (state,action) => {
-            state.users = state.usersByName.results.filter(item => item.user.username.toLowerCase().includes(action.payload)); 
+            state.users = state.usersByName.filter(item => item.user.username.toLowerCase().includes(action.payload)); 
         },
         removeUserErrorMessageAction: (state, action) => {
             state.errorMessage = action.payload
