@@ -13,10 +13,9 @@ export const addNewArticlesThunk = createAsyncThunk(
 
 export const getArticlesThunk = createAsyncThunk(
     'articles/getArticlesThunk',
-    async() => {
+    async(_, {dispatch}) => {
         const responce = await getArticles()
         const data = await responce.data
-        console.log(data)
         return data
     }
 )
@@ -58,3 +57,4 @@ const articlesSlice = createSlice({
 
 export const articlesActions = articlesSlice.actions
 export const articlesReducer = articlesSlice.reducer
+

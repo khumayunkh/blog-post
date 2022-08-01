@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { logout } from "../../api/auth";
+import { authActions } from "../../store/auth/authReducer";
 import { getMeThunk } from "../../store/users/usersReducer";
 import style from './header.module.css'
 
@@ -11,7 +12,9 @@ function Header(){
     const dispatch = useDispatch()
 
     const logOut = () => {
-        logout()
+        logout().then(()=>{
+            authActions.setIsAuthAction(false)
+        })
         dispatch(getMeThunk())
     }
 
@@ -22,7 +25,7 @@ function Header(){
                     <div className={style.logo}>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/BBC_logo_white.svg/1200px-BBC_logo_white.svg.png"/>
                     </div>
-                   {isAuth === true ? 
+                   {isAuth == true ? 
                    <div className={style.me}>
                         <h3>{me.username}</h3>
                         <NavLink className={style.logout} onClick={() => logOut()} to="/">LogOut</NavLink>

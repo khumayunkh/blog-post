@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsersThunk, userActions } from "../../store/users/usersReducer";
+import { getUsersThunk} from "../../store/users/usersReducer";
 import style from './users.module.css'
 import UsersInput from "./UsersInput";
 
@@ -16,7 +16,7 @@ function Users(){
 
     return(
         <>
-       {isAuth === true ?  <div className={style.users}>
+       {isAuth == true ?  <div className={style.users}>
             <div className={style.container}>
                 <div className={style.users_in}>
                     <UsersInput/>

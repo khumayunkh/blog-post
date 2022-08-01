@@ -16,7 +16,7 @@ function Articles(){
 
     return(
         <>
-       {isAuth === true ? <div className={style.articles}>
+       {isAuth == true ? <div className={style.articles}>
             <div className={style.container}>
                 {articles.results.map( item => <div className={style.articles_in}>
                     <div className={style.article}>
