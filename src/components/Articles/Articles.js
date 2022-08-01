@@ -8,15 +8,14 @@ function Articles(){
     const dispatch = useDispatch()
 
     const {isAuth} = useSelector(state => state.auth)
-    const {articles} = useSelector(state => state.articles)
 
     useEffect(() => {
         dispatch(getArticlesThunk())
-    }, dispatch)
+    }, [])
 
+    const {articles} = useSelector(state => state.articles)
     return(
-        <>
-       {isAuth == true ? <div className={style.articles}>
+       <div className={style.articles}>
             <div className={style.container}>
                 {articles.results.map( item => <div className={style.articles_in}>
                     <div className={style.article}>
@@ -29,8 +28,7 @@ function Articles(){
                     <img className={style.img} src="https://miro.medium.com/fit/c/200/134/0*wB68mTt_u2fOx25F"/>
                 </div>)}
             </div>
-        </div> : <></>}
-        </>
+        </div>
     )
 }
 
