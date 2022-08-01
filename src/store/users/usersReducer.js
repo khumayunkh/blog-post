@@ -28,6 +28,7 @@ export const getUsersThunk = createAsyncThunk(
     async function(){
         const response = await getUsers()
         const data = await response.data.results
+        console.log(response.data.results)
         return data
     }
 )
@@ -50,9 +51,9 @@ export const UserSlice = createSlice({
         setMeAction: (state, action) => {
             state.me = action.payload
         },
-        // searchUsers : (state,action) => {
-        //     state.users = state.usersByName.results.filter(item => item.user.username.toLowerCase().includes(action.payload)); 
-        // },
+        searchUsers : (state,action) => {
+            state.users = state.usersByName.results.filter(item => item.user.username.toLowerCase().includes(action.payload)); 
+        },
         removeUserErrorMessageAction: (state, action) => {
             state.errorMessage = action.payload
         },
@@ -84,7 +85,7 @@ export const UserSlice = createSlice({
         builder.addCase(getUsersThunk.fulfilled, (state,action) => {
             state.isLoading = false
             state.users = action.payload
-            // state.usersByName = action.payload
+            state.usersByName = action.payload
         })    
     }
 })
