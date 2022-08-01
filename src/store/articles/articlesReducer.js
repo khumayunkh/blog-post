@@ -15,7 +15,8 @@ export const getArticlesThunk = createAsyncThunk(
     'articles/getArticlesThunk',
     async() => {
         const responce = await getArticles()
-        const data = responce.data
+        const data = await responce.data
+        console.log(data)
         return data
     }
 )
@@ -48,7 +49,7 @@ const articlesSlice = createSlice({
         builder.addCase(getArticlesThunk.pending,(state) => {
             state.status = 'loading';
         })
-        builder.addCase(getArticles.pending,(state) => {
+        builder.addCase(getArticlesThunk.fulfilled,(state, action) => {
             state.status = 'loading';
             state.articles = action.payload
         })

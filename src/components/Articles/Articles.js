@@ -1,10 +1,18 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getArticlesThunk } from "../../store/articles/articlesReducer";
 import style from './articles.module.css'
 
 
 function Articles(){
+    const dispatch = useDispatch()
+
     const {isAuth} = useSelector(state => state.auth)
+    const {articles} = useSelector(state => state.articles)
+
+    useEffect(() => {
+        dispatch(getArticlesThunk())
+    }, dispatch)
 
     return(
         <>
