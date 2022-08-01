@@ -28,6 +28,7 @@ export const getUsersThunk = createAsyncThunk(
     async() => {
         const response = await getUsers()
         const data = response.data
+        console.log(data)
         return data
     }
 )
@@ -74,7 +75,7 @@ export const UserSlice = createSlice({
         builder.addCase(getUsersThunk.pending, (state) => {
             state.isLoading = true
         })
-        builder.addCase(getUsersThunk.fulfilled, (state) => {
+        builder.addCase(getUsersThunk.fulfilled, (state,action) => {
             state.isLoading = false
             state.users = action.payload
         })    

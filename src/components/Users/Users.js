@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsersThunk } from "../../store/users/usersReducer";
 import style from './users.module.css'
 
 function Users(){
+    const dispatch = useDispatch()
+    const users = useSelector(state => state.users.users)
+
+    useEffect(() => {
+        dispatch(getUsersThunk())
+    },dispatch())
+
     return(
         <>
         <div className={style.users}>
