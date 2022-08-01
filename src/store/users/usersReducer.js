@@ -35,6 +35,7 @@ export const getUsersThunk = createAsyncThunk(
 
 export const UserState = {
     users : [],
+    usersByName : [],
     me: undefined,
     errorMessage: undefined,
     isLoading: false,
@@ -46,6 +47,9 @@ export const UserSlice = createSlice({
     reducers: {
         setMeAction: (state, action) => {
             state.me = action.payload
+        },
+        searchUsers : (state,action) =>{
+            state.users = state.usersByName.results.filter(item => item.user.username.toLowerCase().includes(action.payload)); 
         },
         removeUserErrorMessageAction: (state, action) => {
             state.errorMessage = action.payload
@@ -78,6 +82,7 @@ export const UserSlice = createSlice({
         builder.addCase(getUsersThunk.fulfilled, (state,action) => {
             state.isLoading = false
             state.users = action.payload
+            state.usersByName - action.payload
         })    
     }
 })

@@ -11,7 +11,7 @@ function Users(){
     useEffect(() => {
         dispatch(getUsersThunk())
     },dispatch)
-    
+
     return(
         <>
        {isAuth === true ?  <div className={style.users}>
@@ -36,4 +36,4 @@ function Users(){
     )
 }
 
-export default Users
+export default Users 
