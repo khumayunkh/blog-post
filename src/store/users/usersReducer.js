@@ -3,7 +3,7 @@ import {
     createSlice,
 } from "@reduxjs/toolkit";
 import axios from "axios";
-import {getMe} from "../../api/users";
+import {getMe, getUsers} from "../../api/users";
 import {authActions} from "../auth/authReducer";
 
 
@@ -23,8 +23,17 @@ export const getMeThunk = createAsyncThunk(
     }
 )
 
+export const getUsersThunk = createAsyncThunk(
+    'users',
+    async() => {
+        const response = await getUsers()
+        const data = response.data
+        return data
+    }
+)
 
 export const UserState = {
+    users : [],
     me: undefined,
     errorMessage: undefined,
     isLoading: false,
@@ -62,6 +71,13 @@ export const UserSlice = createSlice({
                 state.errorMessage = action?.error.message;
                 state.isLoading = false
             })
+        builder.addCase(getUsersThunk.pending, (state) => {
+            state.isLoading = true
+        })
+        builder.addCase(getUsersThunk.fulfilled, (state) => {
+            state.isLoading = false
+            state.users = action.payload
+        })    
     }
 })
 

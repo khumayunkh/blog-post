@@ -19,7 +19,7 @@ function AddArticles(){
             content : data.content
         }))
     }
-
+    
     return(
         <>
         <div className={style.add}>

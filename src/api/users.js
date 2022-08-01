@@ -15,3 +15,8 @@ export const getMe = async () => {
         } else throw error
     }
 }
+
+
+export const getUsers = async () => {
+    return await client.get('profile/')
+}
