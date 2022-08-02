@@ -9,6 +9,7 @@ import Registr from "./components/Registration/Registration"
 import Footer from "./components/Footer/Footer"
 import Users from "./components/Users/Users"
 import Verify from "./components/Verify/Verify"
+import UserProfile from "./components/UserProfile/UserProfile"
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
       <Route
         path="/profile"
         element={<Profile/>}
+      />
+      <Route
+        path="/userprofile"
+        element={<UserProfile/>}
       />
       <Route
         path="/users/verify/:token"

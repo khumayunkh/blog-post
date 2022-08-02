@@ -1,14 +1,13 @@
-import react from react
+import React from 'react'
 import style from './userProfile.module.css'
 
-function userProfile(){
+function UserProfile(){
     return(
         <>
         <div className={style.profile}>
             <div className={style.container}>
                 <div className={style.header}>
                     <h1>Your stories</h1>
-                    <NavLink className={style.btn} to='/add'>Wrile a story</NavLink>
                 </div>
                 <h3 className={style.published}>Published</h3>
                 <div className={style.story}>
@@ -21,4 +20,4 @@ function userProfile(){
 }
 
 
-export default userProfile
+export default UserProfile
