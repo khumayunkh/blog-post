@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { getUsersThunk} from "../../store/users/usersReducer";
 import style from './users.module.css'
 import UsersInput from "./UsersInput";
@@ -25,7 +26,9 @@ function Users(){
                         </div>
                     <div className={style.user_email}>
                         <h2>{item.user.username}</h2>
-                        <button>See More</button>
+                        <NavLink to='/userProfile' className={style.user_profile}>
+                            See more
+                        </NavLink>
                     </div>
                     </div>)}
                 </div>
