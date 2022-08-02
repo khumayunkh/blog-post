@@ -9,7 +9,7 @@ function UserProfile(){
     const {id} = useParams()
 
     useEffect(() => {
-        dispatch(getUserProfileThunk(JSON.stringify(id)))
+        dispatch(getUserProfileThunk(id))
     },[])
 
     return(
