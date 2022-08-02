@@ -7,7 +7,7 @@ import style from './add.module.css'
 function AddArticles(){
     const dispatch = useDispatch()
     const {isAuth} = useSelector(state => state.auth)
-    const {register, handleSubmit} = useForm()
+    const {register, handleSubmit, reset} = useForm()
 
     const nameAddArticles = register('tags')
     const titleAddArticles = register('title')
@@ -19,6 +19,7 @@ function AddArticles(){
             title : data.title,
             content : data.content
         }))
+        reset()
     }
     
     return(

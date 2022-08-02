@@ -22,13 +22,12 @@ export const getMeThunk = createAsyncThunk(
         }
     }
 )
-    
+
 export const getUsersThunk = createAsyncThunk(
     'users',
     async function(){
         const response = await getUsers()
         const data = await response.data.results
-        console.log(response.data.results)
         return data
     }
 )
@@ -92,3 +91,4 @@ export const UserSlice = createSlice({
 
 export const userActions = UserSlice.actions
 export const userReducer = UserSlice.reducer
+
