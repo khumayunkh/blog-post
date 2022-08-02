@@ -11,9 +11,9 @@ function Users(){
     useEffect(() => {
         dispatch(getUsersThunk())
     },[])
-     
+    
     const users = useSelector(state => state.user.users)
-
+    
     return(
         <div className={style.users}>
             <div className={style.container}>
@@ -26,7 +26,7 @@ function Users(){
                         </div>
                     <div className={style.user_email}>
                         <h2>{item.user.username}</h2>
-                        <NavLink to='/userProfile' className={style.user_profile}>
+                        <NavLink to={'/userProfile/' + item.id} className={style.user_profile}>
                             See more
                         </NavLink>
                     </div>

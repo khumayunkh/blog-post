@@ -3,7 +3,7 @@ import {
     createSlice,
 } from "@reduxjs/toolkit";
 import axios from "axios";
-import {getMe, getUsers} from "../../api/users";
+import {getMe, getUserProfile, getUsers} from "../../api/users";
 import {authActions} from "../auth/authReducer";
 
 
@@ -32,9 +32,18 @@ export const getUsersThunk = createAsyncThunk(
     }
 )
 
+export const getUserProfileThunk = createAsyncThunk(
+    'userProfile',
+    async function(id, {dispatch}){
+        const response = await getUserProfile({id})
+        await dispatch(userActions.userProfile(response.data))
+    }
+)
+
 export const UserState = {
     users : [],
     usersByName : [],
+    userProfile : undefined,
     me: undefined,
     errorMessage: undefined,
     isLoading: false,
@@ -49,6 +58,9 @@ export const UserSlice = createSlice({
         },
         setMeAction: (state, action) => {
             state.me = action.payload
+        },
+        setUserProfile :(state,action) => {
+            state.userProfile = action.payload
         },
         searchUsers : (state,action) => {
             state.users = state.usersByName.filter(item => item.user.username.toLowerCase().includes(action.payload)); 

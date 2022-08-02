@@ -20,3 +20,7 @@ export const getMe = async () => {
 export const getUsers = async () => {
     return await client.get('profile/')
 }
+
+export const getUserProfile = async (id) => {
+    return await client.get(`users/${id}`)
+}
