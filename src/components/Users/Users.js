@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getUsersThunk} from "../../store/users/usersReducer";
 import style from './users.module.css'
-import UsersInput from "./UsersInput";
+import UsersInput from "./UsersInput"
+import loader from './../../loading/loader.gif'
 
 function Users(){
     const dispatch = useDispatch()
-    
+    const {isLoading} = useSelector(state => state.user)
+
     useEffect(() => {
         dispatch(getUsersThunk())
     },[])
@@ -15,7 +17,8 @@ function Users(){
     const users = useSelector(state => state.user.users)
     
     return(
-        <div className={style.users}>
+        <>
+        { isLoading == true ? <h2 className={style.loader}>loading...</h2>:<div className={style.users}>
             <div className={style.container}>
                 <div className={style.users_in}>
                     <UsersInput/>
@@ -33,7 +36,8 @@ function Users(){
                     </div>)}
                 </div>
             </div>
-        </div> 
+        </div> }
+        </>
     )
 }
 

@@ -48,3 +48,10 @@
     width: 200px;
     height: 160px;
 }
+
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

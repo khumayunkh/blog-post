@@ -65,3 +65,10 @@
     background-color: white;
     color: rgb(52, 52, 221);
 }
+
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

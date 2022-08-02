@@ -2,19 +2,20 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getArticlesThunk } from "../../store/articles/articlesReducer";
 import style from './articles.module.css'
-
+import loader from './../../loading/loader.gif'
 
 function Articles(){
     const dispatch = useDispatch()
-    const {isAuth} = useSelector(state => state.auth)
     const articles = useSelector(state => state.articles.articles)
-    
+    const {isLoading} = useSelector(state => state.articles)   
+
     useEffect(() => {
         dispatch(getArticlesThunk())
     },[])
     
     return(
-       <div className={style.articles}>
+        <>
+       {isLoading == true ? <img className={style.loader} src={loader}/> : <div className={style.articles}>
             <div className={style.container}>
                 {articles.map( item => <div key ={item.id} className={style.articles_in}>
                     <div className={style.article}>
@@ -27,7 +28,8 @@ function Articles(){
                     <img className={style.img} src="https://miro.medium.com/fit/c/200/134/0*wB68mTt_u2fOx25F"/>
                 </div>)}
             </div>
-        </div>
+        </div>}
+        </>
     )
 }
 
