@@ -1,17 +1,18 @@
 import React, { useEffect, useRef } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getUserProfileThunk } from '../../store/users/usersReducer'
 import style from './userProfile.module.css'
 
 function UserProfile(){
     const dispatch = useDispatch()
+    const {userProfile} = useSelector(state => state.user) 
     const {id} = useParams()
 
     useEffect(() => {
         dispatch(getUserProfileThunk(id))
     },[])
-
+    
     return(
         <>
         <div className={style.profile}>

@@ -36,7 +36,8 @@ export const getUserProfileThunk = createAsyncThunk(
     'userProfile',
     async function(id, {dispatch}){
         const response = await getUserProfile(id)
-        await dispatch(userActions.userProfile(response.data))
+        await dispatch(userActions.setUserProfile(response.data))
+        return console.log(userActions.setUserProfile(response.data))
     }
 )
 

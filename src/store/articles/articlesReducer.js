@@ -22,7 +22,8 @@ export const getArticlesThunk = createAsyncThunk(
 
 const initialState = {
     articles : [],
-    status : null
+    status : null,
+    isLoading : false
 }
 
 const articlesSlice = createSlice({
@@ -46,11 +47,11 @@ const articlesSlice = createSlice({
         })
         builder.addCase(addNewArticlesThunk.rejected,(state,action) =>{})
         builder.addCase(getArticlesThunk.pending,(state) => {
-            state.status = 'loading';
+            state.isLoading = true
         })
         builder.addCase(getArticlesThunk.fulfilled,(state, action) => {
-            state.status = 'loading';
             state.articles = action.payload
+            state.isLoading = false
         })
     }
 })
