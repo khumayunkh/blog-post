@@ -30,10 +30,6 @@
     outline: none;
 }
 
-
-
-
-
 .user{
     margin: 3%;
     flex-wrap: wrap;
@@ -50,7 +46,6 @@
     width: 90px;
 }
 
-
 .user_email{
     width: 50%;
     color: rgb(54, 54, 54);
@@ -59,6 +54,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .user_profile{
     text-decoration: none;
     border-style: none;

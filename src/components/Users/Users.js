@@ -18,7 +18,7 @@ function Users(){
     
     return(
         <>
-        { isLoading == true ? <h2 className={style.loader}>loading...</h2>:<div className={style.users}>
+        { isLoading == true ? <img className={style.loader} src={loader}/>:<div className={style.users}>
             <div className={style.container}>
                 <div className={style.users_in}>
                     <UsersInput/>
