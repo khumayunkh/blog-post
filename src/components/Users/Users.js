@@ -29,7 +29,7 @@ function Users(){
                         </div>
                     <div className={style.user_email}>
                         <h2>{item.user.username}</h2>
-                        <NavLink to={'/userProfile/' + item.id} className={style.user_profile}>
+                        <NavLink to={'/userProfile/' + item.user.profile} className={style.user_profile}>
                             See more
                         </NavLink>
                     </div>

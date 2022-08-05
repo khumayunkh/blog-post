@@ -7,10 +7,10 @@ import style from './userProfile.module.css'
 function UserProfile(){
     const dispatch = useDispatch()
     const {userProfile} = useSelector(state => state.user) 
-    const {id} = useParams()
+    const {UserProfile} = useParams()
 
-    useEffect((id) => {
-        dispatch(getUserProfileThunk(id))
+    useEffect(() => {
+        dispatch(getUserProfileThunk(UserProfile))
     },[])
     
     return(
@@ -18,7 +18,7 @@ function UserProfile(){
         <div className={style.profile}>
             <div className={style.container}>
                 <div className={style.header}>
-                    <h1>{id}</h1>
+                    <h1>{UserProfile}</h1>
                 </div>
                 <h3 className={style.published}>Published</h3>
                 <div className={style.story}>

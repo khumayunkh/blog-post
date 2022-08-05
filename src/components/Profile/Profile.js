@@ -12,7 +12,7 @@ function Profile(){
     const {isAuth} = useSelector(state => state.auth)
 
     useEffect(() => {
-        dispatch(getUserArticleThunk(me.id))
+        dispatch(getUserArticleThunk(me?.id))
     },[])
 
     return(
