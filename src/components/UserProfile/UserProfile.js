@@ -9,7 +9,7 @@ function UserProfile(){
     const {userProfile} = useSelector(state => state.user) 
     const {id} = useParams()
 
-    useEffect(() => {
+    useEffect((id) => {
         dispatch(getUserProfileThunk(id))
     },[])
     
