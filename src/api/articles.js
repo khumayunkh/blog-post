@@ -12,7 +12,6 @@ export const getArticles = async() => {
     return await client.get('/articles/')
 }
 
-
 export const getArticle = async(id) => {
     return await client.get(`/articles/${id}`)
 }

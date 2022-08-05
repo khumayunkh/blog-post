@@ -11,7 +11,7 @@ function UsersInput(){
     const filterByName = () => {
         dispatch(userActions.searchUsers(inputRef.current.value))
     }
-
+    
     return(
         <>
             <div className={style.input}>

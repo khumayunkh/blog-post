@@ -14,7 +14,7 @@ function Profile(){
     useEffect(() => {
         dispatch(getUserArticleThunk(me?.id))
     },[])
-
+    
     return(
         <>
         {isAuth === true ?<div className={style.profile}>

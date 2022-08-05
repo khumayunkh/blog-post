@@ -1,6 +1,6 @@
 import React from "react";
 import style from './login.module.css'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginThunk } from "../../store/auth/authReducer";
 import { NavLink } from "react-router-dom";
 import {useForm} from 'react-hook-form'
@@ -9,6 +9,7 @@ import { getMeThunk } from "../../store/users/usersReducer";
 function LoginForm(){
     const {register, handleSubmit} = useForm()
     const dispatch = useDispatch()
+    const {isAuth} = useSelector(state => state.auth)
 
     const emailLogin = register("email", {required: true})
     const passwordLogin = register("password", {required: true})
@@ -20,7 +21,7 @@ function LoginForm(){
         }))
     }
 
-    const getMe = () => {
+    const getMe = async() => {
         dispatch(getMeThunk())
     }
 
