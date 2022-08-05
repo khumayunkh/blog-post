@@ -23,3 +23,4 @@ export const getUsers = async () => {
 export const getUserProfile = async (id) => {
     return await client.get(`users/${id}`)
 }
+
