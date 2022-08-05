@@ -14,5 +14,5 @@ export const getArticles = async() => {
 
 
 export const getArticle = async(id) => {
-    return await client.get(`/articles${id}`)
+    return await client.get(`/articles/${id}`)
 }

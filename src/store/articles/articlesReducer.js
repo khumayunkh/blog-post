@@ -29,7 +29,6 @@ export const getUserArticleThunk = createAsyncThunk(
     }
 )
 
-
 const initialState = {
     articles : [],
     status : null,

@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getUserArticleThunk } from "../../store/articles/articlesReducer";
 import style from './profile.module.css'
 
 
 function Profile(){
     const dispatch = useDispatch()
+    const {me} = useSelector(state => state.user)
+    const {userArticle} = useSelector(state => state.articles)
     const {isAuth} = useSelector(state => state.auth)
+
+    useEffect(() => {
+        dispatch(getUserArticleThunk(me.id))
+    },[])
 
     return(
         <>
