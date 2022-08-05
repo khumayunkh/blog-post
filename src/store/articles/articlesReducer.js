@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { addArticles, getArticles } from "../../api/articles"
+import { addArticles, getArticle, getArticles } from "../../api/articles"
 
 
 export const addNewArticlesThunk = createAsyncThunk(
@@ -20,10 +20,21 @@ export const getArticlesThunk = createAsyncThunk(
     }
 )
 
+export const getUserArticleThunk = createAsyncThunk(
+    'articles/getUserArticleThunk',
+    async (id) =>  {
+        const responce = await getArticle(id)
+        const data = responce.data
+        return data
+    }
+)
+
+
 const initialState = {
     articles : [],
     status : null,
-    isLoading : false
+    isLoading : false,
+    userArticle : {},
 }
 
 const articlesSlice = createSlice({
@@ -32,6 +43,9 @@ const articlesSlice = createSlice({
     reducers:{
         addArticle(state, action){
             state.articles.push(action.payload)
+        },
+        setUserArticle : (state, action) => {
+            state.userArticle = action.payload
         },
         setArticles : (state, action) => {
             state.articles = action.payload
@@ -51,6 +65,13 @@ const articlesSlice = createSlice({
         })
         builder.addCase(getArticlesThunk.fulfilled,(state, action) => {
             state.articles = action.payload
+            state.isLoading = false
+        })
+        builder.addCase(getUserArticleThunk.pending,(state) => {
+            state.isLoading = true
+        })
+        builder.addCase(getUserArticleThunk.fulfilled,(state, action) => {
+            state.userArticle = action.payload
             state.isLoading = false
         })
     }

@@ -36,8 +36,8 @@ export const getUserProfileThunk = createAsyncThunk(
     'userProfile',
     async function(id, {dispatch}){
         const response = await getUserProfile(id)
-        await dispatch(userActions.setUserProfile(response.data))
-        return console.log(userActions.setUserProfile(response.data))
+        const data = await response.data
+        return data
     }
 )
 
@@ -60,7 +60,7 @@ export const UserSlice = createSlice({
         setMeAction: (state, action) => {
             state.me = action.payload
         },
-        setUserProfile :(state,action) => {
+        setUserProfile: (state, action) => {
             state.userProfile = action.payload
         },
         searchUsers : (state,action) => {
@@ -98,7 +98,14 @@ export const UserSlice = createSlice({
             state.isLoading = false
             state.users = action.payload
             state.usersByName = action.payload
-        })    
+        })
+        builder.addCase(getUserProfileThunk.pending, (state) => {
+            state.isLoading = true
+        })
+        builder.addCase(getUserProfileThunk.fulfilled, (state,action) => {
+            state.isLoading = false
+            state.userProfile = action.payload
+        })     
     }
 })
 
