@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getArticlesThunk } from "../../store/articles/articlesReducer";
 import style from './articles.module.css'
 import loader from './../../loading/loader.gif'
+import Pagination from "./Pagination/Pagination";
 
 function Articles(){
     const dispatch = useDispatch()
@@ -18,7 +19,7 @@ function Articles(){
 
     const indexOfLastPost = currentPage * todosPerPage;
     const indexOfFirstPost = indexOfLastPost - todosPerPage;
-    const currentPosts = todos.slice(indexOfFirstPost, indexOfLastPost)
+    const currentPosts = articles.slice(indexOfFirstPost, indexOfLastPost)
 
     const paginate = pageNumber => setCurrentPage(pageNumber)
     return(
@@ -36,6 +37,11 @@ function Articles(){
                     <img className={style.img} src="https://miro.medium.com/fit/c/200/134/0*wB68mTt_u2fOx25F"/>
                 </div>)}
             </div>
+            <Pagination
+             todosPerPage={todosPerPage} 
+             totalTodos = {articles.length} 
+             paginate={paginate}
+            />
         </div>}
         </>
     )
