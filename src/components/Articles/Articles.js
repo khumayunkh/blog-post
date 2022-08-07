@@ -7,12 +7,20 @@ import loader from './../../loading/loader.gif'
 function Articles(){
     const dispatch = useDispatch()
     const articles = useSelector(state => state.articles.articles)
-    const {isLoading} = useSelector(state => state.articles)   
-
+    const {isLoading} = useSelector(state => state.articles) 
+    const [text, setText] = useState('')
+    const [currentPage,setCurrentPage] = useState(1)
+    const [todosPerPage, setPostsPerPage] = useState(5)
+    
     useEffect(() => {
         dispatch(getArticlesThunk())
-    },[])
-    
+    },[])       
+
+    const indexOfLastPost = currentPage * todosPerPage;
+    const indexOfFirstPost = indexOfLastPost - todosPerPage;
+    const currentPosts = todos.slice(indexOfFirstPost, indexOfLastPost)
+
+    const paginate = pageNumber => setCurrentPage(pageNumber)
     return(
         <>
        {isLoading == true ? <img className={style.loader} src={loader}/> : <div className={style.articles}>

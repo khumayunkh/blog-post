@@ -20,11 +20,10 @@ function LoginForm(){
             password : data.password
         }))
     }
-
     const getMe = async() => {
         dispatch(getMeThunk())
     }
-
+    
     return(
         <>
         <div className={style.LoginForm}>
