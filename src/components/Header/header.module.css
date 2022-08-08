@@ -27,7 +27,7 @@ img{
     background-color: white;
     border-style: none;
     height: 4vh;
-    width: 5vw;
+    width: 35%;
     border-radius: 20px;
     font-size: 15px;
     display: flex;
@@ -75,6 +75,26 @@ img{
     .login{
         width: 30%;
     }
+    .me{
+        width: 30%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .logout{
+        color: rgb(54, 54, 54);
+        font-weight: 900;
+        background-color: white;
+        border-style: none;
+        height: 4vh;
+        width: 40%;
+        border-radius: 20px;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+    }
 }
 @media(max-width: 600px){
     .login{
@@ -95,5 +115,25 @@ img{
     }
     .sign_up_nav{
         font-size: 10px;
+    }
+    .me{
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .logout{
+        color: rgb(54, 54, 54);
+        font-weight: 900;
+        background-color: white;
+        border-style: none;
+        height: 4vh;
+        width: 45%;
+        border-radius: 20px;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
     }
 }
