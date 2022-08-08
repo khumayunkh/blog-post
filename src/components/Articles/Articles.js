@@ -25,11 +25,6 @@ function Articles(){
         <>
        {isLoading == true ? <img className={style.loader} src={loader}/> : <div className={style.articles}>
             <div className={style.container}>
-            <Pagination
-             todosPerPage={todosPerPage} 
-             totalTodos = {articles.length} 
-             paginate={paginate}
-            />
                 {currentPosts.map( item => <div key ={item.id} className={style.articles_in}>
                     <div className={style.article}>
                         <div className={style.header}>
@@ -40,6 +35,11 @@ function Articles(){
                     </div>
                     <img className={style.img} src="https://miro.medium.com/fit/c/200/134/0*wB68mTt_u2fOx25F"/>
                 </div>)}
+                <Pagination
+             todosPerPage={todosPerPage} 
+             totalTodos = {articles.length} 
+             paginate={paginate}
+            />
             </div>
         </div>}
         </>

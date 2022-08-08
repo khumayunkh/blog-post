@@ -4,11 +4,11 @@
 }
 .pagination_in{
     display: flex;
-    
+    overflow: scroll;
 }
 
 .pagination_btn {
-    width: 200px;
+    width: 100px;
     margin-top: 4%;
   align-items: center;
   background-color: rgb(54, 54, 54);
@@ -47,7 +47,7 @@
 }
 
 .pagination_btn:active {
-  background: #09223b;
+  background: #104a84;
   color: rgb(255, 255, 255, .7);
 }
 
