@@ -19,7 +19,7 @@ function Articles(){
     const indexOfLastPost = currentPage * todosPerPage;
     const indexOfFirstPost = indexOfLastPost - todosPerPage;
     const currentPosts = articles.slice(indexOfFirstPost, indexOfLastPost)
-
+    
     const paginate = pageNumber => setCurrentPage(pageNumber)
     return(
         <>
