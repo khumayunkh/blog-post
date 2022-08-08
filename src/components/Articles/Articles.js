@@ -9,14 +9,13 @@ function Articles(){
     const dispatch = useDispatch()
     const articles = useSelector(state => state.articles.articles)
     const {isLoading} = useSelector(state => state.articles) 
-    const [text, setText] = useState('')
     const [currentPage,setCurrentPage] = useState(1)
     const [todosPerPage, setPostsPerPage] = useState(5)
     
     useEffect(() => {
         dispatch(getArticlesThunk())
     },[])       
-
+    
     const indexOfLastPost = currentPage * todosPerPage;
     const indexOfFirstPost = indexOfLastPost - todosPerPage;
     const currentPosts = articles.slice(indexOfFirstPost, indexOfLastPost)
@@ -26,7 +25,12 @@ function Articles(){
         <>
        {isLoading == true ? <img className={style.loader} src={loader}/> : <div className={style.articles}>
             <div className={style.container}>
-                {articles.map( item => <div key ={item.id} className={style.articles_in}>
+            <Pagination
+             todosPerPage={todosPerPage} 
+             totalTodos = {articles.length} 
+             paginate={paginate}
+            />
+                {currentPosts.map( item => <div key ={item.id} className={style.articles_in}>
                     <div className={style.article}>
                         <div className={style.header}>
                             <img className={style.logo} src="https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png"/>
@@ -37,11 +41,6 @@ function Articles(){
                     <img className={style.img} src="https://miro.medium.com/fit/c/200/134/0*wB68mTt_u2fOx25F"/>
                 </div>)}
             </div>
-            <Pagination
-             todosPerPage={todosPerPage} 
-             totalTodos = {articles.length} 
-             paginate={paginate}
-            />
         </div>}
         </>
     )
