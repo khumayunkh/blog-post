@@ -11,7 +11,7 @@ function Articles(){
     const {isLoading} = useSelector(state => state.articles) 
     const [currentPage,setCurrentPage] = useState(1)
     const [todosPerPage, setPostsPerPage] = useState(5)
-    
+
     useEffect(() => {
         dispatch(getArticlesThunk())
     },[])       

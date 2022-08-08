@@ -16,7 +16,6 @@ export const getArticlesThunk = createAsyncThunk(
     async() => {
         const responce = await getArticles()
         const data = await responce.data.results
-        console.log(responce.data.results)
         return data
     }
 )
