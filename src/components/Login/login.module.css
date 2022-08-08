@@ -56,3 +56,122 @@
     background-color: white;
     color: rgb(52, 52, 221);
 }
+
+@media(max-width:1300px){
+    .LoginForm_in{
+        width: 30%;
+        height: 350px;
+        box-shadow: 5px 10px 100px rgb(117, 116, 116);
+        background-color: white;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: inherit;
+    }
+    .input{
+        background-color: white;
+        border-style: none;
+        height: 4vh;
+        width: 80%;
+        border: 1px solid rgb(54, 54, 54);
+        border-radius: 10px;  
+        padding-left: 25px;
+        margin: 3%;
+    }
+}
+@media(max-width:1100px){
+    .LoginForm_in{
+        width: 40%;
+        height: 350px;
+        box-shadow: 5px 10px 100px rgb(117, 116, 116);
+        background-color: white;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: inherit;
+    }
+}
+
+@media(max-width:750px){
+    .LoginForm_in{
+        width: 50%;
+        height: 350px;
+        box-shadow: 5px 10px 100px rgb(117, 116, 116);
+        background-color: white;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: inherit;
+    }
+    .btn_login{
+        font-size: 18px;
+        margin: 2%;
+        height: 4vh;
+        width: 60%;
+        border-style: none;
+        border-radius: 10px;
+        background-color: rgb(54, 54, 54);
+        color: white;
+    }
+}
+
+@media(max-width:500px){
+    .LoginForm_in{
+        width: 70%;
+        height: 300px;
+        box-shadow: 5px 10px 100px rgb(117, 116, 116);
+        background-color: white;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: inherit;
+    }
+    .btn_login{
+        font-size: 18px;
+        margin: 2%;
+        height: 4vh;
+        width: 70%;
+        border-style: none;
+        border-radius: 10px;
+        background-color: rgb(54, 54, 54);
+        color: white;
+    }
+}
+
+@media(max-width:350px){
+    .LoginForm_in{
+        width: 70%;
+        height: 250px;
+        box-shadow: 5px 10px 100px rgb(117, 116, 116);
+        background-color: white;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: inherit;
+    }
+    .input{
+        background-color: white;
+        border-style: none;
+        height: 3vh;
+        width: 60%;
+        border: 1px solid rgb(54, 54, 54);
+        border-radius: 10px;  
+        padding-left: 25px;
+        margin: 3%;
+    }
+    .btn_login{
+        font-size: 18px;
+        margin: 2%;
+        height: 4vh;
+        width: 50%;
+        border-style: none;
+        border-radius: 10px;
+        background-color: rgb(54, 54, 54);
+        color: white;
+    }
+}
