@@ -41,3 +41,65 @@
 .tags:hover{
     color: rgb(54, 54, 54);
 }
+
+
+@media(max-width:1750px){
+    .icons{
+        width: 10%;
+        border-radius: 12px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1%;
+        transition-duration: 1s;
+        transition-property: background-color;
+    }
+}
+
+@media(max-width:880px){
+    .icons{
+        width: 14%;
+        border-radius: 12px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1%;
+        transition-duration: 1s;
+        transition-property: background-color;
+    }
+}
+
+@media(max-width:560px){
+    .tags{
+        font-size: 14px;
+    }
+    .icons{
+        width: 18%;
+        border-radius: 10px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1%;
+        transition-duration: 1s;
+        transition-property: background-color;
+    }
+}
+@media(max-width:410px){
+    .tags{
+        font-size: 12px;
+    }
+    .icons{
+        width: 20%;
+        border-radius: 10px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1%;
+        transition-duration: 1s;
+        transition-property: background-color;
+    }
+}
