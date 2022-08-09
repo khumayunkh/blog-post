@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    width: 60%;
+    width: 95%;
     margin: 0 auto;
     flex-direction: column;
 }
@@ -9,12 +9,13 @@
 .header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .btn{
     margin: 2%;
     height: 4vh;
-    width: 7vw;
+    width: 12%;
     border-style: none;
     border-radius: 20px;
     background-color: rgb(54, 54, 54);
@@ -41,4 +42,42 @@
 
 .story h3{
     font-weight: 300;
+}
+
+@media(max-width:1300px){
+    .btn{
+        width: 20%;
+    }
+}
+@media(max-width:850px){
+    .btn{
+        width: 25%;
+    }
+}
+@media(max-width:680px){
+    h1{
+        justify-self: start;
+    }
+    .header{
+        width: 100%;
+        margin-top: 10%;
+        display: flex;
+        align-items: center;
+    }
+    .btn{
+        width: 25%;
+    }
+}
+@media(max-width:600px){
+    .btn{
+        width: 30%;
+    }
+}
+@media(max-width:400px){
+    .btn{
+        width: 35%;
+    }
+    .published{
+        margin-top: 15%;
+    }
 }
