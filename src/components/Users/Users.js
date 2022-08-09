@@ -9,12 +9,11 @@ import loader from './../../loading/loader.gif'
 function Users(){
     const dispatch = useDispatch()
     const {isLoading} = useSelector(state => state.user)
-
+    const users = useSelector(state => state.user.users)
+    
     useEffect(() => {
         dispatch(getUsersThunk())
     },[])
-    
-    const users = useSelector(state => state.user.users)
     
     return(
         <>

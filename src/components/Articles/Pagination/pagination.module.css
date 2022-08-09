@@ -1,6 +1,8 @@
 .pagination{
     display: flex;
     justify-content: center;
+    overflow: scroll;
+    width: 90%;
 }
 .pagination_in{
     display: flex;
@@ -55,4 +57,8 @@
   cursor: not-allowed;
   background: rgba(0, 0, 0, .08);
   color: rgba(0, 0, 0, .3);
+}
+
+@media(max-width:800px){
+  
 }
