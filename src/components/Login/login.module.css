@@ -130,6 +130,16 @@
         justify-content: center;
         align-items: inherit;
     }
+    .input{
+        background-color: white;
+        border-style: none;
+        height: 3vh;
+        width: 90%;
+        border: 1px solid rgb(54, 54, 54);
+        border-radius: 10px;  
+        padding-left: 5px;
+        margin: 4%;
+    }
     .btn_login{
         font-size: 18px;
         margin: 2%;
@@ -158,11 +168,11 @@
         background-color: white;
         border-style: none;
         height: 3vh;
-        width: 60%;
+        width: 90%;
         border: 1px solid rgb(54, 54, 54);
         border-radius: 10px;  
-        padding-left: 25px;
-        margin: 3%;
+        padding-left: 5px;
+        margin: 5%;
     }
     .btn_login{
         font-size: 18px;
