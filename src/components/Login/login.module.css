@@ -129,6 +129,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: inherit;
+        padding: 5%;
     }
     .input{
         background-color: white;

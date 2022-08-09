@@ -49,11 +49,13 @@
         width: 20%;
     }
 }
+
 @media(max-width:850px){
     .btn{
         width: 25%;
     }
 }
+
 @media(max-width:680px){
     h1{
         justify-self: start;
@@ -68,11 +70,13 @@
         width: 25%;
     }
 }
+
 @media(max-width:600px){
     .btn{
         width: 30%;
     }
 }
+
 @media(max-width:400px){
     .btn{
         width: 35%;
