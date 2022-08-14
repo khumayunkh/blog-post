@@ -10,7 +10,7 @@ function Profile(){
     const {me} = useSelector(state => state.user)
     const {userArticle} = useSelector(state => state.articles)
     const {isAuth} = useSelector(state => state.auth)
-
+    
     useEffect(() => {
         dispatch(getUserArticleThunk(me?.id))
     },[])
@@ -32,5 +32,5 @@ function Profile(){
         </>
     )
 }
-
+                     
 export default Profile
