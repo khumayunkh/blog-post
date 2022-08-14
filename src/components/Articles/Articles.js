@@ -7,10 +7,10 @@ import Pagination from "./Pagination/Pagination";
 
 function Articles(){
     const dispatch = useDispatch()
-    const articles = useSelector(state => state.articles.articles)
+    const {articles} = useSelector(state => state.articles)
     const {isLoading} = useSelector(state => state.articles) 
     const [currentPage,setCurrentPage] = useState(1)
-    const [todosPerPage, setPostsPerPage] = useState(5)
+    const [todosPerPage, setPostsPerPage] = useState(6)
 
     useEffect(() => {
         dispatch(getArticlesThunk())

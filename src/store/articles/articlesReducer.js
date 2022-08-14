@@ -2,21 +2,21 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { addArticles, getArticle, getArticles } from "../../api/articles"
 
 
-export const addNewArticlesThunk = createAsyncThunk(
-    'articles/addNewArticles',
-    async ({tags, title, content}, {dispatch}) => {
-        const response = await addArticles({tags, title, content})
-        const data = await response.data
-        dispatch(articlesActions.addArticle(data))
-    }
-)
-
 export const getArticlesThunk = createAsyncThunk(
     'articles/getArticlesThunk',
     async() => {
         const responce = await getArticles()
         const data = await responce.data.results
         return data
+    }
+)
+
+export const addNewArticlesThunk = createAsyncThunk(
+    'articles/addNewArticles',
+    async ({tags, title, content}, {dispatch}) => {
+        const response = await addArticles({tags, title, content})
+        const data = await response.data
+        dispatch(articlesActions.addArticle(data))
     }
 )
 

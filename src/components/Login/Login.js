@@ -2,9 +2,10 @@ import React from "react";
 import style from './login.module.css'
 import { useDispatch, useSelector } from "react-redux";
 import { loginThunk } from "../../store/auth/authReducer";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import { useForm } from 'react-hook-form'
 import { getMeThunk } from "../../store/users/usersReducer";
+import {useHistory} from 'react-router-dom'
  
 function LoginForm(){
     const {register, handleSubmit} = useForm()
@@ -19,11 +20,16 @@ function LoginForm(){
             email: data.email,
             password : data.password
         }))
-    }
-    
-    const getMe = async() => {
         dispatch(getMeThunk())
     }
+
+    if(isAuth){
+        return <Navigate to='/profile'/>
+    }
+    
+    // const getMe = async() => {
+    //     d
+    // }
     
     return(
         <>
@@ -43,8 +49,8 @@ function LoginForm(){
                     type="password"
                     placeholder='Password'
                 />
-                <button onClick={getMe} to='/profile' className={style.btn_login}>
-                    Login
+                <button to='/profile' className={style.btn_login}>
+                   Login
                 </button>
                 </form>
                 <NavLink to='/registr' className={style.btn_sign_in}>
