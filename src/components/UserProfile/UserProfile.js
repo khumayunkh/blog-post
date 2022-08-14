@@ -18,11 +18,11 @@ function UserProfile(){
         <div className={style.profile}>
             <div className={style.container}>
                 <div className={style.header}>
-                    <h1>{UserProfile}</h1>
+                    <h1>{userProfile.username}</h1>
                 </div>
                 <h3 className={style.published}>Published</h3>
                 <div className={style.story}>
-                    <h3>You haven’t published any public stories yet.</h3>
+                    <h3>{userProfile.username} hasn’t published any public stories yet.</h3>
                 </div>
             </div>
         </div>
