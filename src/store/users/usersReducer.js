@@ -47,7 +47,6 @@ export const getMyProfileThunk = createAsyncThunk(
     async function(profile){
         const response = await getProfile(profile)
         const data = await response.data
-        console.log(response.data)
         return data
     }
 )
