@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 function Articles(){
     const dispatch = useDispatch()
-    
+
     const {articles} = useSelector(state => state.articles)
     const {isLoading} = useSelector(state => state.articles) 
     const [currentPage,setCurrentPage] = useState(1)

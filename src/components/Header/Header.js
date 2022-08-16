@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { logout } from "../../api/auth";
 import { authActions } from "../../store/auth/authReducer";
-import { getMeThunk } from "../../store/users/usersReducer";
+import { getMeThunk, getMyProfileThunk } from "../../store/users/usersReducer";
 import style from './header.module.css'
 
 function Header(){
     const {isAuth} = useSelector(state => state.auth)
     const {me} = useSelector(state => state.user)
+    const {myProfile} = useSelector(state => state.user)
     const dispatch = useDispatch()
 
     const logOut = () => {
@@ -18,6 +19,11 @@ function Header(){
         dispatch(getMeThunk())
     }
     
+    useEffect(()=>{
+        if(isAuth){
+            dispatch(getMyProfileThunk(me.profile))
+        }
+    })
     return(
        <div className={style.header}>
             <div className={style.container}>
@@ -27,7 +33,7 @@ function Header(){
                     </div>
                    {isAuth == true ? 
                    <div className={style.me}>
-                        <NavLink className={style.user_name} to='/profile'>{me.username}</NavLink>
+                        <NavLink className={style.user_name} to='/profile'>{myProfile.user.username}</NavLink>
                         <NavLink className={style.logout} onClick={() => logOut()} to="/">LogOut</NavLink>
                    </div> :
                    <div className={style.login}>

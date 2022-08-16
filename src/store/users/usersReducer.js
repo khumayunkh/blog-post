@@ -55,7 +55,7 @@ export const getMyProfileThunk = createAsyncThunk(
 export const UserState = {
     users : [],
     usersByName : [],
-    myProfile: [],
+    myProfile: undefined,
     userProfile : undefined,
     me: undefined,
     errorMessage: undefined,
