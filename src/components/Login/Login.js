@@ -5,13 +5,13 @@ import { loginThunk } from "../../store/auth/authReducer";
 import { Navigate, NavLink } from "react-router-dom";
 import { useForm } from 'react-hook-form'
 import { getMeThunk } from "../../store/users/usersReducer";
-import {useHistory} from 'react-router-dom'
  
+    
 function LoginForm(){
     const {register, handleSubmit} = useForm()
     const dispatch = useDispatch()
     const {isAuth} = useSelector(state => state.auth)
-              
+          
     const emailLogin = register("email", {required: true})
     const passwordLogin = register("password", {required: true})
     
@@ -22,15 +22,11 @@ function LoginForm(){
         }))
         dispatch(getMeThunk())
     }
-
+    
     if(isAuth){
         return <Navigate to='/profile'/>
     }
-    
-    // const getMe = async() => {
-    //     d
-    // }
-    
+
     return(
         <>
         <div className={style.LoginForm}>

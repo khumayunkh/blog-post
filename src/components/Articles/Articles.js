@@ -7,11 +7,12 @@ import Pagination from "./Pagination/Pagination";
 
 function Articles(){
     const dispatch = useDispatch()
+    
     const {articles} = useSelector(state => state.articles)
     const {isLoading} = useSelector(state => state.articles) 
     const [currentPage,setCurrentPage] = useState(1)
-    const [todosPerPage, setPostsPerPage] = useState(6)
-
+    const [todosPerPage, setPostsPerPage] = useState(4)
+    
     useEffect(() => {
         dispatch(getArticlesThunk())
     },[])       
@@ -21,6 +22,7 @@ function Articles(){
     const currentPosts = articles.slice(indexOfFirstPost, indexOfLastPost)
     
     const paginate = pageNumber => setCurrentPage(pageNumber)
+    
     return(
         <>
        {isLoading == true ? <img className={style.loader} src={loader}/> : <div className={style.articles}>

@@ -15,9 +15,9 @@ import {
   import storage from 'redux-persist/lib/storage';
   
   const rootReducer = combineReducers({
+    articles : articlesReducer,
     auth : authReducer,
     user : userReducer,
-    articles : articlesReducer
   });
   
   const persistConfig = {

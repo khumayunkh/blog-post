@@ -3,7 +3,7 @@ import style from './pagination.module.css'
 
 const Pagination =({todosPerPage, totalTodos, paginate})=>{
     const pageNumber = [];
-
+    
     for(let i = 1; i<=Math.ceil(totalTodos/todosPerPage); i++){
         pageNumber.push(i)
     }

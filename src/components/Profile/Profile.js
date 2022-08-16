@@ -8,7 +8,7 @@ import style from './profile.module.css'
 function Profile(){
     const dispatch = useDispatch()
     const {me} = useSelector(state => state.user)
-    const {userArticle} = useSelector(state => state.articles)
+    const {userArticle} = useSelector(state => state.article)
     const {isAuth} = useSelector(state => state.auth)
     
     useEffect(() => {
