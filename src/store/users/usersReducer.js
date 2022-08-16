@@ -3,7 +3,7 @@ import {
     createSlice,
 } from "@reduxjs/toolkit";
 import axios from "axios";
-import {getMe, getUserProfile, getUsers} from "../../api/users";
+import {getMe, getProfile, getUserProfile, getUsers} from "../../api/users";
 import {authActions} from "../auth/authReducer";
 
 
@@ -43,9 +43,19 @@ export const getUserProfileThunk = createAsyncThunk(
     }
 )
 
+export const getMyProfileThunk = createAsyncThunk(
+    'users/getMyProfile',
+    async function(profile){
+        const response = await getProfile(profile)
+        const data = await response.data
+        return data
+    }
+)
+
 export const UserState = {
     users : [],
     usersByName : [],
+    myProfile: [],
     userProfile : undefined,
     me: undefined,
     errorMessage: undefined,
@@ -107,6 +117,13 @@ export const UserSlice = createSlice({
         builder.addCase(getUserProfileThunk.fulfilled, (state,action) => {
             state.isLoading = false
             state.userProfile = action.payload
+        })
+        builder.addCase(getMyProfileThunk.pending, (state) => {
+            state.isLoading = true
+        })
+        builder.addCase(getMyProfileThunk.fulfilled, (state,action) => {
+            state.isLoading = false
+            state.myProfile = action.payload
         })     
     }
 })
