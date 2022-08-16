@@ -7,7 +7,6 @@ export const getArticlesThunk = createAsyncThunk(
     async() => {
         const responce = await getArticles()
         const data = await responce.data.results
-        console.log(responce.data.results)
         return data
     }
 )
@@ -31,7 +30,7 @@ export const getUserArticleThunk = createAsyncThunk(
 )
 
 const initialState = {
-    articles : undefined,
+    articles : [],
     status : null,
     isLoading : false,
     userArticle : {},

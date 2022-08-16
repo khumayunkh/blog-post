@@ -4,6 +4,8 @@
 
 .users_in{
     margin-top: 2%;
+    display: flex;
+    flex-direction: column;
 }
 
 .input{
@@ -31,6 +33,7 @@
 }
 
 .user{
+    align-self: center;
     margin: 3%;
     flex-wrap: wrap;
     align-items: center;
