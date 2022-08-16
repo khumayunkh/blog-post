@@ -17,7 +17,7 @@ function Header(){
         })
         dispatch(getMeThunk())
     }
-
+    
     return(
        <div className={style.header}>
             <div className={style.container}>

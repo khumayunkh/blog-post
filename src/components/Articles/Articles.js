@@ -4,6 +4,7 @@ import { getArticlesThunk } from "../../store/articles/articlesReducer";
 import style from './articles.module.css'
 import loader from './../../loading/loader.gif'
 import Pagination from "./Pagination/Pagination";
+import { NavLink } from "react-router-dom";
 
 function Articles(){
     const dispatch = useDispatch()
@@ -43,6 +44,9 @@ function Articles(){
              paginate={paginate}
             />
             </div>
+            <NavLink className={style.add_post} to='/add'>
+                <img src="https://freesvg.org/img/1464710523.png"/>
+            </NavLink>
         </div>}
         </>
     )

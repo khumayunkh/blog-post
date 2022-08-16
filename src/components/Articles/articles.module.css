@@ -4,6 +4,11 @@
     margin-bottom: 200px;
 }
 
+
+.articles{
+    display: flex;
+    flex-direction: column;
+}
 .articles_in{
     margin: 2%;
     display: flex;
@@ -56,6 +61,13 @@
     text-align: center;
 }
 
+.add_post{
+    position: absolute;
+    align-self: end;
+    justify-self: end;
+    margin: 1%;
+}
+
 @media(max-width:1300px){
     .articles_in{
         display: flex;
@@ -85,6 +97,15 @@
         display: flex;
         width: 75%;
         align-items: center;
+    }
+    .add_post{
+        position: absolute;
+        align-self: end;
+        justify-self: end;
+        margin: 1%;
+    }
+    .add_post img{
+        width: 80px;
     }
 }
 @media(max-width:800px){
@@ -116,6 +137,9 @@
         margin-left: -10%;
         width: 25%;
         border-radius: 50%;
+    }
+    .add_post img{
+        width: 60px;
     }
 }
 

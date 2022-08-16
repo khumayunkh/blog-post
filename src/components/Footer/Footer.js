@@ -18,9 +18,6 @@ function Footer(){
                     <div className={style.icons}>
                         <NavLink className={style.tags} to='/add'>Add Article</NavLink>
                     </div>
-                    <div className={style.icons}>
-                        <NavLink className={style.tags} to='/profile'>Profile</NavLink>
-                    </div>
                 </div>
             </div>
         </div>
