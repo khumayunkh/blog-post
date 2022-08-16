@@ -12,9 +12,9 @@ function Profile(){
     const {userArticle} = useSelector(state => state.articles)
     const {isAuth} = useSelector(state => state.auth)
     
-    useEffect(() => {
-        dispatch(getUserArticleThunk(me?.id))
-    },[])
+    // useEffect(() => {
+    //     dispatch(getUserArticleThunk(me?.id))
+    // },[])
     
     return(
         <>

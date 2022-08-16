@@ -11,7 +11,7 @@ function Header(){
     const {me} = useSelector(state => state.user)
     const {myProfile} = useSelector(state => state.user)
     const dispatch = useDispatch()
-
+    
     const logOut = () => {
         logout().then(()=>{
             authActions.setIsAuthAction(false)
@@ -23,7 +23,8 @@ function Header(){
         if(isAuth){
             dispatch(getMyProfileThunk(me.profile))
         }
-    })
+    },[])
+    
     return(
        <div className={style.header}>
             <div className={style.container}>
