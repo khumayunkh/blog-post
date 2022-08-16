@@ -13,6 +13,7 @@ export const getMeThunk = createAsyncThunk(
         try {
             const response = await getMe()
             await dispatch(userActions.setMeAction(response.data))
+            console.log(response.data)
             return dispatch(authActions.setIsAuthAction(true))
         } catch (error) {
             if (axios.isAxiosError(error)) {
@@ -37,6 +38,7 @@ export const getUserProfileThunk = createAsyncThunk(
     async function(id, {dispatch}){
         const response = await getUserProfile(id)
         const data = await response.data
+        console.log(response.data)
         return data
     }
 )

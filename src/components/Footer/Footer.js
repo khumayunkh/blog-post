@@ -10,7 +10,7 @@ function Footer(){
             <div className={style.container}>
                 <div className={style.footer_in}>
                     <div className={style.icons}>
-                        <NavLink className={style.tags} to='/users'>Users</NavLink>
+                        <NavLink className={style.tags} to='/users'>Profiles</NavLink>
                     </div>
                     <div className={style.icons}>
                         <NavLink className={style.tags} to='/articles'>Articles</NavLink>

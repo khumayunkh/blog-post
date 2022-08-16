@@ -12,8 +12,9 @@
 .articles_in{
     margin: 2%;
     display: flex;
-    width: 50%;
+    width: 80%;
     align-items: center;
+    justify-content: space-between;
 }
 
 .article{
@@ -32,7 +33,7 @@
 }
 
 .logo{
-    margin-left: -10%;
+    margin-left: -2%;
     width: 20%;
     border-radius: 50%;
 }
@@ -50,6 +51,7 @@
 }
 
 .img{
+    justify-self: end;
     width: 200px;
     height: 160px;
 }
@@ -62,10 +64,22 @@
 }
 
 .add_post{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgb(54, 54, 54);
     position: absolute;
     align-self: end;
     justify-self: end;
     margin: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add_post img{
+    margin-right: 10%;
+    width: 40px;
+    height: 40px;
 }
 
 @media(max-width:1300px){

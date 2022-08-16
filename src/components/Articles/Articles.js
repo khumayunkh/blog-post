@@ -45,7 +45,7 @@ function Articles(){
             />
             </div>
             <NavLink className={style.add_post} to='/add'>
-                <img src="https://freesvg.org/img/1464710523.png"/>
+                <img src="https://icon-library.com/images/white-plus-icon/white-plus-icon-3.jpg"/>
             </NavLink>
         </div>}
         </>

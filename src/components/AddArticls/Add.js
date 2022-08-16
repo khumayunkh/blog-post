@@ -8,7 +8,7 @@ function AddArticles(){
     const dispatch = useDispatch()
     const {isAuth} = useSelector(state => state.auth)
     const {register, handleSubmit, reset} = useForm()
-
+    
     const nameAddArticles = register('tags')
     const titleAddArticles = register('title')
     const contentAddArticles = register('content')
