@@ -5,10 +5,12 @@ import style from './articles.module.css'
 import loader from './../../loading/loader.gif'
 import Pagination from "./Pagination/Pagination";
 import { NavLink } from "react-router-dom";
+import AddArticlesModule from "../AddArticlesPopUp/AddArticles";
 
 function Articles(){
     const dispatch = useDispatch()
-
+    
+    const [modalActive, setModalActive] = useState(true)
     const {articles} = useSelector(state => state.articles)
     const {isLoading} = useSelector(state => state.articles) 
     const [currentPage,setCurrentPage] = useState(1)
@@ -44,9 +46,13 @@ function Articles(){
              paginate={paginate}
             />
             </div>
-            <NavLink className={style.add_post} to='/add'>
+            <button onClick={() => setModalActive(true)} className={style.add_post} >
                 <img src="https://icon-library.com/images/white-plus-icon/white-plus-icon-3.jpg"/>
-            </NavLink>
+            </button>
+            <AddArticlesModule
+                active={modalActive}
+                setActive={setModalActive}
+            />
         </div>}
         </>
     )

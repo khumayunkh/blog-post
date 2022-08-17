@@ -13,19 +13,22 @@ function Profile(){
     const {userArticle} = useSelector(state => state.articles)
     const {isAuth} = useSelector(state => state.auth)
     const {myProfile} = useSelector(state => state.user)
-    const [image, setImage] = useState('')
-
-    const handleChange = (e) => {
-        console.log(e.target.files)
-        setImage(e.target.files[0])
-    }
-
-    const handleSubmit = () => {
-        client.post('profile/', data).then(result => {
-            console.log(result.data)
-            alert('success')
-          })
-    }
+    // const [image, setImage] = useState('')
+    
+    // const handleChange = (e) => {
+    //     console.log(e.target.files)
+    //     setImage(e.target.files[0])
+    // }
+    
+    // const handleSubmit = () => {
+    //     client.put('profile/', {
+    //         user  : { username : myProfile.user.username, email: myProfile.user.email },
+    //         photo :  image
+    //     }).then(result => {
+    //         console.log(result.data)
+    //         alert('success')
+    //     })
+    // }
     
     return(
         <>
@@ -33,8 +36,8 @@ function Profile(){
             <div className={style.container}>
                 <div className={style.header}>
                     <h1>{myProfile.user.username}</h1>
-                    <input type='file' onChange={handleChange} />
-                    <button onClick={handleSubmit} >SUBMIT</button>
+                    {/* <input type='file' onChange={handleChange} />
+                    <button onClick={handleSubmit} >SUBMIT</button> */}
                     <NavLink className={style.btn} to='/add'>Wrile a story</NavLink>
                 </div>
                 <h3 className={style.published}>Published</h3>
