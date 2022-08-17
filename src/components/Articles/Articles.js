@@ -12,7 +12,7 @@ function Articles(){
     const [modalActive, setModalActive] = useState(false) 
     const [currentPage,setCurrentPage] = useState(1)
     const [todosPerPage, setPostsPerPage] = useState(6)
-    
+
     const {articles} = useSelector(state => state.articles)
     const {isLoading} = useSelector(state => state.articles)
     
