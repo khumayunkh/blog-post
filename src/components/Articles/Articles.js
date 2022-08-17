@@ -50,8 +50,8 @@ function Articles(){
                 <img src="https://icon-library.com/images/white-plus-icon/white-plus-icon-3.jpg"/>
             </button>
             <AddArticlesModule
-                active={modalActive}
-                setActive={setModalActive}
+                open={modalActive}
+                onClose={() => setModalActive(false)}
             />
         </div>}
         </>
