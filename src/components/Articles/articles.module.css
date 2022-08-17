@@ -75,6 +75,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-style: none;
 }
 .add_post img{
     margin-right: 10%;

@@ -4,17 +4,17 @@ import { getArticlesThunk } from "../../store/articles/articlesReducer";
 import style from './articles.module.css'
 import loader from './../../loading/loader.gif'
 import Pagination from "./Pagination/Pagination";
-import { NavLink } from "react-router-dom";
 import AddArticlesModule from "../AddArticlesPopUp/AddArticles";
 
 function Articles(){
     const dispatch = useDispatch()
     
-    const [modalActive, setModalActive] = useState(true)
-    const {articles} = useSelector(state => state.articles)
-    const {isLoading} = useSelector(state => state.articles) 
+    const [modalActive, setModalActive] = useState(false) 
     const [currentPage,setCurrentPage] = useState(1)
     const [todosPerPage, setPostsPerPage] = useState(6)
+    
+    const {articles} = useSelector(state => state.articles)
+    const {isLoading} = useSelector(state => state.articles)
     
     useEffect(() => {
         dispatch(getArticlesThunk())
