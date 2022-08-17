@@ -47,7 +47,7 @@ function Articles(){
             />
             </div>
             <button onClick={() => setModalActive(true)} className={style.add_post} >
-                <img src="https://icon-library.com/images/white-plus-icon/white-plus-icon-3.jpg"/>
+                <img className={style.add_post_img} src="https://icon-library.com/images/white-plus-icon/white-plus-icon-3.jpg"/>
             </button>
             <AddArticlesModule
                 open={modalActive}
