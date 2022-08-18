@@ -29,67 +29,34 @@
     border-radius: 8px;
 }
   
-.modalRight {
+.modal_in {
     width: 100%;
+    min-height: 300px;
 }
-  
-.closeBtn {
-    position: fixed;
-    top: 8px;
-    right: 8px;
-}
-  
-.content {
+
+.input{
+    margin: 1%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
-    margin-top: 3rem;
-    padding: 1rem 2rem;
-}
-  
-.btnContainer {
-    display: flex;
-    padding: 1rem 1rem;
+    align-items: center;
 }
 
-.btnContainer button {
-    width: 100%;
-    margin: .5rem;
-    padding: 16px 0;
-    border: 1px solid #411b57;
+
+.input_in{
+    width: 80%;
+    height: 28%;
+    border: none;
+    margin: 1%;
 }
-  
-.btnPrimary {
-    background-color: #411b57;
+
+.input button{
+    font-weight: 300;
+    height: 4.5vh;
+    width: 30%;
+    border-style: none;
+    border-radius: 40px;
+    background-color: rgb(54, 54, 54);
     color: white;
-}
-  
-.btnOutline {
-    background-color: white;
-    color: #411b57;
-}
-  
-.bold {
-    font-weight: 600;
-}
-  
-@media screen and (max-width: 500px) {
-    .modalContainer {
-      flex-direction: column;
-      top: 0;
-      left: 0;
-      transform: none;
-      width: 100%;
-      height: 100vh;
-    }
-    img {
-      width: 100%;
-      max-height: 70vh;
-      object-fit: cover;
-    }
-  
-    .heading {
-      margin: 1rem;
-    }
 }

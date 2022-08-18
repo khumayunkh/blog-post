@@ -28,7 +28,7 @@ function AddArticles(){
             <div className={style.container}>
                 <div className={style.add_in}>
                     <form onSubmit={handleSubmit(onSubmit)} className={style.input}>
-                        <input {...nameAddArticles} className={style.input_in} placeholder="Name"/>
+                        <input {...nameAddArticles} className={style.input_in} placeholder="Hashtag"/>
                         <input {...titleAddArticles} className={style.input_in} placeholder="Title"/>
                         <input {...contentAddArticles} className={style.input_in} placeholder="Tell your story..."/>
                         <button>Publish</button>

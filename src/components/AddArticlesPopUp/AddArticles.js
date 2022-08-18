@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
 import { addNewArticlesThunk } from "../../store/articles/articlesReducer";
 import style from './add.module.css'
 
@@ -22,33 +21,26 @@ function AddArticlesModule({ open, onClose }){
         }))
         reset()
     }
-
-    if(!isAuth){
-        return <Navigate to='/profile'/>
-    }
-
-
+    
     if (!open) return null;
     return (
         <>
-        {isAuth === true ?<> <div onClick={onClose} className={style.overlay}></div>
+        <div onClick={onClose} className={style.overlay}></div>
         <div
             onClick={(e) => {
               e.stopPropagation();
             }}
             className={style.modalContainer}
             >
-            <div className={style.modalRight}>
-             <div className={style.btnContainer}>
+            <div className={style.modal_in}>
                 <form onSubmit={handleSubmit(onSubmit)} className={style.input}>
-                    <input {...nameAddArticles} className={style.input_in} placeholder="Name"/>
+                    <input {...nameAddArticles} className={style.input_in} placeholder="Hashtag"/>
                     <input {...titleAddArticles} className={style.input_in} placeholder="Title"/>
                     <input {...contentAddArticles} className={style.input_in} placeholder="Tell your story..."/>
                     <button>Publish</button>
                 </form>
-              </div>
             </div>
-        </div></> : <></>}
+        </div>
       </>
     )
 }
