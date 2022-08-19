@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewArticlesThunk } from "../../store/articles/articlesReducer";
+import { addNewArticlesThunk, getArticlesThunk } from "../../store/articles/articlesReducer";
 import style from './add.module.css'
 
 function AddArticlesModule({ open, onClose }){

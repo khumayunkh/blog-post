@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getArticlesThunk } from "../../store/articles/articlesReducer";
+import { addNewArticlesThunk, getArticlesThunk } from "../../store/articles/articlesReducer";
 import style from './articles.module.css'
 import loader from './../../loading/loader.gif'
 import Pagination from "./Pagination/Pagination";
@@ -12,13 +12,13 @@ function Articles(){
     const [modalActive, setModalActive] = useState(false) 
     const [currentPage,setCurrentPage] = useState(1)
     const [todosPerPage, setPostsPerPage] = useState(6)
-
+    
     const {articles} = useSelector(state => state.articles)
     const {isLoading} = useSelector(state => state.articles)
     
     useEffect(() => {
         dispatch(getArticlesThunk())
-    },[])       
+    },[articles.length])   
     
     const indexOfLastPost = currentPage * todosPerPage;
     const indexOfFirstPost = indexOfLastPost - todosPerPage;

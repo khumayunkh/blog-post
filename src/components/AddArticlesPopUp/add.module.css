@@ -49,6 +49,11 @@
     height: 28%;
     border: none;
     margin: 1%;
+    font-size: 23px;
+}
+
+.input_in:focus {
+    outline: none;
 }
 
 .input button{
