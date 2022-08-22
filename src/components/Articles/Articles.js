@@ -5,7 +5,7 @@ import style from './articles.module.css'
 import loader from './../../loading/loader.gif'
 import Pagination from "./Pagination/Pagination";
 import AddArticlesModule from "../AddArticlesPopUp/AddArticles";
-import { getUserProfileThunk } from "../../store/users/usersReducer";
+import { getUserArticleThunk } from "../../store/users/usersReducer";
 
 function Articles(){
     const dispatch = useDispatch()
@@ -13,7 +13,7 @@ function Articles(){
     const [moduleActive, setModuleActive] = useState(false) 
     const [currentPage, setCurrentPage] = useState(1)
     const [todosPerPage, setPostsPerPage] = useState(6)
-
+    
     const {articles} = useSelector(state => state.articles)
     const {isLoading} = useSelector(state => state.articles)
     
@@ -21,6 +21,11 @@ function Articles(){
         dispatch(getArticlesThunk())
     },[articles.length])   
     
+
+    useEffect(()=>{
+        dispatch(getUserArticleThunk(articles.map(state => state.created_by)))
+    },[])
+
     const indexOfLastPost = currentPage * todosPerPage;
     const indexOfFirstPost = indexOfLastPost - todosPerPage;
     const currentPosts = articles.slice(indexOfFirstPost, indexOfLastPost)
