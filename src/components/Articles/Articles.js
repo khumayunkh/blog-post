@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewArticlesThunk, getArticlesThunk } from "../../store/articles/articlesReducer";
+import { getArticlesThunk } from "../../store/articles/articlesReducer";
 import style from './articles.module.css'
 import loader from './../../loading/loader.gif'
 import Pagination from "./Pagination/Pagination";
