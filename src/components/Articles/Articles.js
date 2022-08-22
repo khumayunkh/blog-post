@@ -5,14 +5,15 @@ import style from './articles.module.css'
 import loader from './../../loading/loader.gif'
 import Pagination from "./Pagination/Pagination";
 import AddArticlesModule from "../AddArticlesPopUp/AddArticles";
+import { getUserProfileThunk } from "../../store/users/usersReducer";
 
 function Articles(){
     const dispatch = useDispatch()
     
-    const [modalActive, setModalActive] = useState(false) 
-    const [currentPage,setCurrentPage] = useState(1)
+    const [moduleActive, setModuleActive] = useState(false) 
+    const [currentPage, setCurrentPage] = useState(1)
     const [todosPerPage, setPostsPerPage] = useState(6)
-    
+
     const {articles} = useSelector(state => state.articles)
     const {isLoading} = useSelector(state => state.articles)
     
@@ -46,12 +47,12 @@ function Articles(){
              paginate={paginate}
             />
             </div>
-            <button onClick={() => setModalActive(true)} className={style.add_post} >
+            <button onClick={() => setModuleActive(true)} className={style.add_post} >
                 <img className={style.add_post_img} src="https://icon-library.com/images/white-plus-icon/white-plus-icon-3.jpg"/>
             </button>
             <AddArticlesModule
-                open={modalActive}
-                onClose={() => setModalActive(false)}
+                open={moduleActive}
+                onClose={() => setModuleActive(false)}
             />
         </div>}
         </>
