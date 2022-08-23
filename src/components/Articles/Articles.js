@@ -5,11 +5,11 @@ import style from './articles.module.css'
 import loader from './../../loading/loader.gif'
 import Pagination from "./Pagination/Pagination";
 import AddArticlesModule from "../AddArticlesPopUp/AddArticles";
-import { getUserArticleThunk } from "../../store/users/usersReducer";
+import { getArticleUserNameThunk } from "../../store/users/usersReducer";
 
 function Articles(){
     const dispatch = useDispatch()
-    
+           
     const [moduleActive, setModuleActive] = useState(false) 
     const [currentPage, setCurrentPage] = useState(1)
     const [todosPerPage, setPostsPerPage] = useState(6)
@@ -21,11 +21,10 @@ function Articles(){
         dispatch(getArticlesThunk())
     },[articles.length])   
     
-
     useEffect(()=>{
-        dispatch(getUserArticleThunk(articles.map(state => state.created_by)))
+        dispatch(getArticleUserNameThunk('6c1952f0-cf7b-4278-81f5-5cc97883b5a6'))
     },[])
-
+    
     const indexOfLastPost = currentPage * todosPerPage;
     const indexOfFirstPost = indexOfLastPost - todosPerPage;
     const currentPosts = articles.slice(indexOfFirstPost, indexOfLastPost)
@@ -47,10 +46,10 @@ function Articles(){
                     <img className={style.img} src="https://miro.medium.com/fit/c/200/134/0*wB68mTt_u2fOx25F"/>
                 </div>)}
                 <Pagination
-             todosPerPage={todosPerPage} 
-             totalTodos = {articles.length} 
-             paginate={paginate}
-            />
+                    todosPerPage={todosPerPage} 
+                    totalTodos = {articles.length} 
+                    paginate={paginate}
+                />
             </div>
             <button onClick={() => setModuleActive(true)} className={style.add_post} >
                 <img className={style.add_post_img} src="https://icon-library.com/images/white-plus-icon/white-plus-icon-3.jpg"/>
