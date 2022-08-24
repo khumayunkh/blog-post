@@ -7,9 +7,10 @@ import Pagination from "./Pagination/Pagination";
 import AddArticlesModule from "../AddArticlesPopUp/AddArticles";
 import { getArticleUserNameThunk } from "../../store/users/usersReducer";
 
+
 function Articles(){
     const dispatch = useDispatch()
-           
+    
     const [moduleActive, setModuleActive] = useState(false) 
     const [currentPage, setCurrentPage] = useState(1)
     const [todosPerPage, setPostsPerPage] = useState(6)
@@ -19,23 +20,19 @@ function Articles(){
     
     useEffect(() => {
         dispatch(getArticlesThunk())
-    },[articles.length])   
-    
-    useEffect(()=>{
-        dispatch(getArticleUserNameThunk('6c1952f0-cf7b-4278-81f5-5cc97883b5a6'))
-    },[])
+    },[articles?.length])   
     
     const indexOfLastPost = currentPage * todosPerPage;
     const indexOfFirstPost = indexOfLastPost - todosPerPage;
-    const currentPosts = articles.slice(indexOfFirstPost, indexOfLastPost)
+    const currentPosts = articles?.slice(indexOfFirstPost, indexOfLastPost)
     
     const paginate = pageNumber => setCurrentPage(pageNumber)
-    
+
     return(
         <>
        {isLoading == true ? <img className={style.loader} src={loader}/> : <div className={style.articles}>
             <div className={style.container}>
-                {currentPosts.map( item => <div key ={item.id} className={style.articles_in}>
+                {currentPosts?.map( item => <div key ={item.id} className={style.articles_in}>
                     <div className={style.article}>
                         <div className={style.header}>
                             <img className={style.logo} src="https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png"/>
@@ -47,7 +44,7 @@ function Articles(){
                 </div>)}
                 <Pagination
                     todosPerPage={todosPerPage} 
-                    totalTodos = {articles.length} 
+                    totalTodos = {articles?.length} 
                     paginate={paginate}
                 />
             </div>
