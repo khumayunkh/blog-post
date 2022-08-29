@@ -27,7 +27,7 @@ function Articles(){
     const currentPosts = articles?.slice(indexOfFirstPost, indexOfLastPost)
     
     const paginate = pageNumber => setCurrentPage(pageNumber)
-
+    
     return(
         <>
        {isLoading == true ? <img className={style.loader} src={loader}/> : <div className={style.articles}>
