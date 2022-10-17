@@ -11,11 +11,20 @@ export const getArticlesThunk = createAsyncThunk(
     }
 )
 
-export const addNewArticlesThunk = createAsyncThunk(
-    'articles/addNewArticles',
+// export const addNewArticlesThunk = createAsyncThunk(
+//     'articles/addNewArticles',
+//     async ({tags, title, content}, {dispatch}) => {
+//         const response = await addArticles({tags, title, content})
+//         const data = await response.data
+//         dispatch(articlesActions.addArticle(data))
+//     }
+// )
+
+export const addNewArticleThunk = createAsyncThunk(
+    'articles/addNewArticleThunk',
     async ({tags, title, content}, {dispatch}) => {
-        const response = await addArticles({tags, title, content})
-        const data = await response.data
+        const responce = await addArticles({tags, title, content})
+        const data = await responce.data
         dispatch(articlesActions.addArticle(data))
     }
 )
